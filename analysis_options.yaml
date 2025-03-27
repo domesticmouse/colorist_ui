@@ -1,4 +1,23 @@
 include: package:flutter_lints/flutter.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+analyzer:
+  plugins:
+    - custom_lint
+
+linter:
+  rules:
+    avoid_types_on_closure_parameters: true
+    avoid_void_async: true
+    cancel_subscriptions: true
+    close_sinks: true
+    directives_ordering: true
+    package_prefixed_library_names: true
+    prefer_relative_imports: true
+    prefer_single_quotes: true
+    sort_pub_dependencies: true
+    test_types_in_equals: true
+    throw_in_finally: true
+    unawaited_futures: true
+    unnecessary_breaks: true
+    unnecessary_statements: true
+    use_super_parameters: true
