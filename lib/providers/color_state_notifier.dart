@@ -28,7 +28,7 @@ class ColorStateNotifier extends _$ColorStateNotifier {
   }
 
   /// Updates the current color with new [red], [green], and [blue] values.
-  /// The parameters must be in the range [0.0, 1.0].  The current color is
+  /// The parameters must be in the range `0.0` to `1.0`.  The current color is
   /// added to the history before the update. Returns the updated [ColorData]
   /// object.
   ColorData updateColor({

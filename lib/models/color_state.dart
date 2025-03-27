@@ -70,7 +70,7 @@ abstract class ColorState with _$ColorState {
 
   /// Updates the current color with new [red], [green], and [blue] values.
   ///
-  /// All components must be in the range [0.0, 1.0]. Returns a new [ColorState]
+  /// All components must be in the range `0.0` to `1.0`. Returns a new [ColorState]
   /// with the updated current color. The current color is added to the history
   /// before the update.
   ColorState updateColor({

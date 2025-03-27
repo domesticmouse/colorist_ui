@@ -15,7 +15,7 @@ abstract class ColorData with _$ColorData {
 
   /// Creates a [ColorData] object from [red], [green], and [blue] values.
   /// Assertions ensure that red, green, and blue values are within the valid
-  /// range [0.0, 1.0].
+  /// range `0.0` to `1.0`.
   @Assert('red >= 0.0 && red <= 1.0')
   @Assert('green >= 0.0 && green <= 1.0')
   @Assert('blue >= 0.0 && blue <= 1.0')
@@ -27,7 +27,7 @@ abstract class ColorData with _$ColorData {
 
   /// Creates a [ColorData] object from [red], [green], and [blue] int values (0-255).
   ///
-  /// This factory constructor normalizes the input values to the [0.0-1.0] range.
+  /// This factory constructor normalizes the input values to the `0.0` to `1.0` range.
   factory ColorData.fromRGB({
     required int red,
     required int green,
