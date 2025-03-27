@@ -23,8 +23,7 @@ with the following features:
 The is a library with an example implementation:
 
 - **Core UI Library**: The base directory contains reusable UI components and models
-- **Example Application**:
-  - `example`: Simple implementation that echoes user input
+- **Example Application**: Simple implementation that echoes user input
 
 ## Platform Support
 
