@@ -33,10 +33,10 @@ class ChatStateNotifier extends _$ChatStateNotifier {
     return state.messages.last;
   }
 
-  /// Clears all messages from the chat.
-  void clearMessages() {
-    state = state.clearMessages();
-  }
+  /// Create a new LLM message to the chat and return the newly created message.
+  /// Append content with the [appendToMessage] method, and finalize the message
+  /// with [finalizeMessage].
+  Message createLlmMessage() => addLlmMessage('', MessageState.streaming);
 
   /// Appends additional content to an existing message in the chat.
   /// Takes the [id] of the message to append to, and the text to append as
@@ -49,5 +49,12 @@ class ChatStateNotifier extends _$ChatStateNotifier {
   /// trailing whitespace. The call takes the [id] of the message to finalize.
   void finalizeMessage(String id) {
     state = state.finalizeMessage(id);
+  }
+
+  /// Clears all messages from the chat history.
+  ///
+  /// Primarily for testing purposes.
+  void clearMessages() {
+    state = state.clearMessages();
   }
 }
