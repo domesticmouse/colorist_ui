@@ -29,9 +29,9 @@ The is a library with an example implementation:
 
 The application is designed to work across platforms:
 
-- **Desktop**: macOS, Windows
-- **Mobile**: iOS and Android (responsive layouts)
-- **Web**: desktop and mobile
+- **Desktop**: macOS, Windows, and Linux
+- **Mobile**: iOS and Android
+- **Web**: desktop and mobile layouts
 
 ## Technology Stack
 
@@ -48,7 +48,7 @@ The application features platform-optimized layouts:
 ### Desktop Layout (Split-Screen)
 
 - **Left Side (Interaction Area)**:
-  - Color display rectangle (minimum 200x200 dp)
+  - Color display rectangle
   - RGB value and hex code labels
   - History strip of thumbnails for the last 10 colors
   - Chat interface with message streaming state indicators
