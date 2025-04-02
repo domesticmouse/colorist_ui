@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.0.7
+
+* Simplify `example`
+
 ## 0.0.6
 
 * Adopt `prefer_const_constructors`

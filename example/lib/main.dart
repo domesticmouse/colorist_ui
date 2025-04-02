@@ -6,22 +6,10 @@ import 'package:colorist_ui/models/message.dart';
 import 'package:colorist_ui/providers/chat_state_notifier.dart';
 import 'package:colorist_ui/providers/log_state_notifier.dart';
 import 'package:colorist_ui/ui/screens/main_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logging/logging.dart';
 
 void main() async {
-  Logger.root.level = Level.ALL;
-  Logger.root.onRecord.listen((record) {
-    if (kDebugMode) {
-      print(
-        '${record.loggerName}: ${record.level.name}: '
-        '${record.time}: ${record.message}',
-      );
-    }
-  });
-
   runApp(const ProviderScope(child: MainApp()));
 }
 
