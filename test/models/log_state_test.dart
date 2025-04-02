@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-import 'package:colorist_ui/models/log_entry.dart';
-import 'package:colorist_ui/models/log_state.dart';
+import 'package:colorist_ui/src/models/log_entry.dart';
+import 'package:colorist_ui/src/models/log_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

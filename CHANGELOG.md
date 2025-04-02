@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.1.0
+
+* Simplify the exposed API to a single import.
+
 ## 0.0.7
 
 * Simplify `example`

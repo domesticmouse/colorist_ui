@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:colorist_ui/models/color_data.dart';
-import 'package:colorist_ui/providers/color_state_notifier.dart';
+import 'package:colorist_ui/src/models/color_data.dart';
+import 'package:colorist_ui/src/providers/color_state_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
