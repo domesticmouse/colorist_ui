@@ -3,6 +3,7 @@
 ## 0.0.7
 
 * Simplify `example`
+* Add some barrel files to simplify the exposed API
 
 ## 0.0.6
 
