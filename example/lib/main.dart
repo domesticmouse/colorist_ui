@@ -2,10 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:colorist_ui/models/message.dart';
-import 'package:colorist_ui/providers/chat_state_notifier.dart';
-import 'package:colorist_ui/providers/log_state_notifier.dart';
-import 'package:colorist_ui/ui/screens/main_screen.dart';
+import 'package:colorist_ui/models/models.dart';
+import 'package:colorist_ui/providers/providers.dart';
+import 'package:colorist_ui/ui/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -7,7 +7,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-import '../../models/conversation_state.dart';
+import '../../models/models.dart';
 import '../utils/utils.dart';
 import '../widgets/chat/chat.dart';
 import '../widgets/color/color.dart';
