@@ -61,7 +61,10 @@ class _MobileMainScreenState extends State<MobileMainScreen> {
             icon: Icon(Icons.chat_bubble_outline),
             label: 'Chat',
           ),
-          const NavigationDestination(icon: Icon(Icons.info_outline), label: 'Log'),
+          const NavigationDestination(
+            icon: Icon(Icons.info_outline),
+            label: 'Log',
+          ),
         ],
       ),
     );
