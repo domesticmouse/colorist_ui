@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.0.4
+
+* Use `SelectableRegions` to make text selectable
+
 ## 0.0.3
 
 * Cleanup README
