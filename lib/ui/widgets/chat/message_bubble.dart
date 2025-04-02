@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 import '../../../models/message.dart';
 
@@ -25,8 +26,8 @@ class MessageBubble extends StatelessWidget {
     return Align(
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 6),
-        padding: EdgeInsets.all(12),
+        margin: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.all(12),
         constraints: BoxConstraints(
           maxWidth: MediaQuery.sizeOf(context).width * 0.7,
         ),
@@ -46,18 +47,22 @@ class MessageBubble extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(message.content, style: TextStyle(height: 1.4)),
+            MarkdownBody(
+              data: message.content,
+              selectable: true,
+              styleSheet: MarkdownStyleSheet(p: TextStyle(height: 1.4)),
+            ),
             if (isStreaming) ...[
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 12,
                     height: 12,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Text(
                     'Thinking...',
                     style: TextStyle(

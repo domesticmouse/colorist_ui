@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.0.5
+
+* Use `flutter_markdown` for the message bubbles
+
 ## 0.0.4
 
 * Use `SelectableRegions` to make text selectable

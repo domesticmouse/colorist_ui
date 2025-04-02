@@ -12,6 +12,7 @@ dependencies:
   collection: ^1.19.1
   flutter:
     sdk: flutter
+  flutter_markdown: ^0.7.6+2
   flutter_riverpod: ^2.6.1
   freezed_annotation: ^3.0.0
   json_annotation: ^4.9.0
