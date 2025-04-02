@@ -41,7 +41,7 @@ class _MessagesListState extends ConsumerState<MessagesList> {
     );
 
     if (messages.isEmpty) {
-      return Center(
+      return const Center(
         child: Text(
           'Describe a color to get started',
           style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
@@ -56,7 +56,7 @@ class _MessagesListState extends ConsumerState<MessagesList> {
 
     return ListView.builder(
       controller: _scrollController,
-      padding: EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 16),
       itemCount: messages.length,
       itemBuilder: (context, index) {
         return MessageBubble(message: messages[index]);

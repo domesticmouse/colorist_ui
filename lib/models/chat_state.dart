@@ -19,7 +19,7 @@ abstract class ChatState with _$ChatState {
   const factory ChatState({required List<Message> messages}) = _ChatState;
 
   /// Creates an initial [ChatState] with an empty list of messages.
-  factory ChatState.initial() => ChatState(messages: []);
+  factory ChatState.initial() => const ChatState(messages: []);
 
   /// Adds a new user message to the chat, with [content] being the text.
   ChatState addUserMessage(String content) =>

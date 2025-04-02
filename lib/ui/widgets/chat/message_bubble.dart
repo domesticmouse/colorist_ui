@@ -50,7 +50,7 @@ class MessageBubble extends StatelessWidget {
             MarkdownBody(
               data: message.content,
               selectable: true,
-              styleSheet: MarkdownStyleSheet(p: TextStyle(height: 1.4)),
+              styleSheet: MarkdownStyleSheet(p: const TextStyle(height: 1.4)),
             ),
             if (isStreaming) ...[
               const SizedBox(height: 8),

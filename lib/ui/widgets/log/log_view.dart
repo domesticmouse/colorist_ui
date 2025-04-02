@@ -37,7 +37,7 @@ class _LogViewState extends ConsumerState<LogView> {
     );
 
     if (logEntries.isEmpty) {
-      return Center(
+      return const Center(
         child: Text(
           'No log entries yet',
           style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
@@ -52,7 +52,7 @@ class _LogViewState extends ConsumerState<LogView> {
 
     return ListView.builder(
       controller: _scrollController,
-      padding: EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 16),
       itemCount: logEntries.length,
       itemBuilder: (context, index) {
         return LogEntryWidget(entry: logEntries[index]);

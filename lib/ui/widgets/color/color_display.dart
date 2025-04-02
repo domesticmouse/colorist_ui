@@ -27,7 +27,7 @@ class ColorDisplay extends ConsumerWidget {
             color: Colors.black.withAlpha(50),
             spreadRadius: 1,
             blurRadius: 4,
-            offset: Offset(2, 2),
+            offset: const Offset(2, 2),
           ),
         ],
       ),

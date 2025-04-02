@@ -27,16 +27,16 @@ class ColorInfo extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _ColorValueChip(label: 'R', value: red, color: Colors.red),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             _ColorValueChip(label: 'G', value: green, color: Colors.green),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             _ColorValueChip(label: 'B', value: blue, color: Colors.blue),
           ],
         ),
         Center(
           child: Text(
             currentColor.hexCode,
-            style: TextStyle(fontFamily: 'monospace', fontSize: 14),
+            style: const TextStyle(fontFamily: 'monospace', fontSize: 14),
           ),
         ),
       ],
@@ -57,7 +57,7 @@ class _ColorValueChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
     decoration: BoxDecoration(
       color: color.withAlpha(50),
       borderRadius: BorderRadius.circular(4),

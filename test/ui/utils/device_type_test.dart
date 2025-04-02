@@ -73,8 +73,8 @@ void main() {
     testWidgets('sets correct size for phone', (tester) async {
       // Build a widget with phone size
       await tester.pumpWidget(
-        MediaQuery(
-          data: const MediaQueryData(size: Size(600, 800)),
+        const MediaQuery(
+          data: MediaQueryData(size: Size(600, 800)),
           child: MaterialApp(
             home: Center(
               child: DeviceSizedBox(
@@ -97,8 +97,8 @@ void main() {
     testWidgets('sets correct size for desktop', (tester) async {
       // Build a widget with desktop size
       await tester.pumpWidget(
-        MediaQuery(
-          data: const MediaQueryData(size: Size(800, 1200)),
+        const MediaQuery(
+          data: MediaQueryData(size: Size(800, 1200)),
           child: MaterialApp(
             home: Center(
               child: DeviceSizedBox(
@@ -121,8 +121,8 @@ void main() {
     testWidgets('handles null values correctly', (tester) async {
       // Build a widget with only some dimensions specified
       await tester.pumpWidget(
-        MediaQuery(
-          data: const MediaQueryData(size: Size(600, 800)),
+        const MediaQuery(
+          data: MediaQueryData(size: Size(600, 800)),
           child: MaterialApp(
             home: Center(
               child: DeviceSizedBox(phoneHeight: 200, desktopWidth: 300),

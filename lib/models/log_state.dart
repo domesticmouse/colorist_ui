@@ -19,7 +19,7 @@ abstract class LogState with _$LogState {
   const factory LogState({required List<LogEntry> logEntries}) = _LogState;
 
   /// Creates an initial [LogState] with an empty list of log entries.
-  factory LogState.initial() => LogState(logEntries: []);
+  factory LogState.initial() => const LogState(logEntries: []);
 
   /// Adds a new log entry representing user-entered text with
   /// the [text] entered by the user.

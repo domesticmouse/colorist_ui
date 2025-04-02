@@ -19,7 +19,7 @@ void main() {
       });
 
       test('constructor creates a state with provided values', () {
-        final colorData = ColorData(red: 0.5, green: 0.3, blue: 0.7);
+        final colorData = const ColorData(red: 0.5, green: 0.3, blue: 0.7);
 
         final state = ColorState(currentColor: colorData, colorHistory: []);
 
@@ -30,7 +30,7 @@ void main() {
 
     group('JSON serialization', () {
       test('toJson/fromJson roundtrip preserves data', () {
-        final initialState = ColorState(
+        final initialState = const ColorState(
           currentColor: ColorData(red: 0.2, green: 0.4, blue: 0.8),
           colorHistory: [
             ColorData(red: 0.1, green: 0.2, blue: 0.3),
@@ -72,7 +72,7 @@ void main() {
       final initialState = ColorState.initial();
 
       // Set current color to something other than white
-      final redColor = ColorData(red: 1.0, green: 0.0, blue: 0.0);
+      final redColor = const ColorData(red: 1.0, green: 0.0, blue: 0.0);
 
       final stateWithColor = initialState.copyWith(currentColor: redColor);
       final stateWithHistory = stateWithColor.addCurrentColorToHistory();
@@ -85,7 +85,7 @@ void main() {
       final initialState = ColorState.initial();
 
       // Set current color
-      final redColor = ColorData(red: 1.0, green: 0.0, blue: 0.0);
+      final redColor = const ColorData(red: 1.0, green: 0.0, blue: 0.0);
 
       final stateWithColor = initialState.copyWith(currentColor: redColor);
       final stateWithHistory = stateWithColor.addCurrentColorToHistory();
@@ -109,7 +109,7 @@ void main() {
       }
 
       // Add an 11th color
-      final customColor = ColorData(red: 0.25, green: 0.25, blue: 0.25);
+      final customColor = const ColorData(red: 0.25, green: 0.25, blue: 0.25);
 
       state = state.copyWith(currentColor: customColor);
       state = state.addCurrentColorToHistory();
@@ -133,9 +133,9 @@ void main() {
 
       // Add several colors to history
       final colors = [
-        ColorData(red: 1.0, green: 0.0, blue: 0.0), // Red
-        ColorData(red: 0.0, green: 1.0, blue: 0.0), // Green
-        ColorData(red: 0.0, green: 0.0, blue: 1.0), // Blue
+        const ColorData(red: 1.0, green: 0.0, blue: 0.0), // Red
+        const ColorData(red: 0.0, green: 1.0, blue: 0.0), // Green
+        const ColorData(red: 0.0, green: 0.0, blue: 1.0), // Blue
       ];
 
       for (final color in colors) {
@@ -155,13 +155,13 @@ void main() {
       var state = ColorState.initial();
 
       // Add a color to history
-      final redColor = ColorData(red: 1.0, green: 0.0, blue: 0.0);
+      final redColor = const ColorData(red: 1.0, green: 0.0, blue: 0.0);
 
       state = state.copyWith(currentColor: redColor);
       state = state.addCurrentColorToHistory();
 
       // Set current color to something else
-      final blueColor = ColorData(red: 0.0, green: 0.0, blue: 1.0);
+      final blueColor = const ColorData(red: 0.0, green: 0.0, blue: 1.0);
       state = state.copyWith(currentColor: blueColor);
 
       // Try to select with invalid indices
@@ -180,7 +180,7 @@ void main() {
       final whiteColor = initialState.currentColor;
 
       // Set new color to red
-      final redColor = ColorData(red: 1.0, green: 0.0, blue: 0.0);
+      final redColor = const ColorData(red: 1.0, green: 0.0, blue: 0.0);
       final updatedState = initialState.updateColor(
         red: redColor.red,
         green: redColor.green,
@@ -197,7 +197,7 @@ void main() {
       expect(updatedState.colorHistory.first, equals(whiteColor));
 
       // Now update to blue
-      final blueColor = ColorData(red: 0.0, green: 0.0, blue: 1.0);
+      final blueColor = const ColorData(red: 0.0, green: 0.0, blue: 1.0);
       final finalState = updatedState.updateColor(
         red: blueColor.red,
         green: blueColor.green,

@@ -26,7 +26,7 @@ class LogEntryWidget extends StatelessWidget {
       child: SelectableRegion(
         selectionControls: materialTextSelectionControls,
         child: Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: backgroundColor.withAlpha(25),
             borderRadius: BorderRadius.circular(4),
@@ -49,7 +49,7 @@ class LogEntryWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               // Content
               Text(
                 entry.content,

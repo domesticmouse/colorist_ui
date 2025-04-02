@@ -9,7 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('ColorData', () {
     test('should create a valid ColorData instance', () {
-      final colorData = ColorData(red: 0.5, green: 0.3, blue: 0.7);
+      final colorData = const ColorData(red: 0.5, green: 0.3, blue: 0.7);
 
       expect(colorData.red, 0.5);
       expect(colorData.green, 0.3);
@@ -37,15 +37,15 @@ void main() {
     );
 
     test('should correctly generate hex code', () {
-      final colorData = ColorData(red: 1.0, green: 0.0, blue: 0.5);
+      final colorData = const ColorData(red: 1.0, green: 0.0, blue: 0.5);
 
       expect(colorData.hexCode, '#ff0080');
 
-      final colorData2 = ColorData(red: 0.0, green: 1.0, blue: 0.0);
+      final colorData2 = const ColorData(red: 0.0, green: 1.0, blue: 0.0);
 
       expect(colorData2.hexCode, '#00ff00');
 
-      final colorData3 = ColorData(red: 0.2, green: 0.4, blue: 0.6);
+      final colorData3 = const ColorData(red: 0.2, green: 0.4, blue: 0.6);
 
       // 0.2 * 255 = 51 (33 in hex)
       // 0.4 * 255 = 102 (66 in hex)
@@ -54,7 +54,7 @@ void main() {
     });
 
     test('should correctly convert to Flutter Color', () {
-      final colorData = ColorData(red: 0.6, green: 0.3, blue: 0.8);
+      final colorData = const ColorData(red: 0.6, green: 0.3, blue: 0.8);
 
       final color = colorData.color;
       expect(color, isA<Color>());
@@ -68,7 +68,7 @@ void main() {
       'should correctly create from Flutter Color using fromColor factory',
       () {
         // Create a Flutter Color
-        final flutterColor = Color.fromRGBO(102, 153, 204, 1.0);
+        final flutterColor = const Color.fromRGBO(102, 153, 204, 1.0);
 
         // Create ColorData from the Flutter Color
         final colorData = ColorData.fromColor(flutterColor);
@@ -81,7 +81,7 @@ void main() {
     );
 
     test('should correctly generate LLM context map', () {
-      final colorData = ColorData(red: 0.4, green: 0.5, blue: 0.6);
+      final colorData = const ColorData(red: 0.4, green: 0.5, blue: 0.6);
 
       final contextMap = colorData.toLLMContextMap();
 
@@ -93,7 +93,7 @@ void main() {
     });
 
     test('should handle null values correctly in LLM context map', () {
-      final colorData = ColorData(red: 0.1, green: 0.2, blue: 0.3);
+      final colorData = const ColorData(red: 0.1, green: 0.2, blue: 0.3);
 
       final contextMap = colorData.toLLMContextMap();
 
@@ -102,7 +102,7 @@ void main() {
     });
 
     test('should correctly serialize to JSON', () {
-      final colorData = ColorData(red: 0.1, green: 0.2, blue: 0.3);
+      final colorData = const ColorData(red: 0.1, green: 0.2, blue: 0.3);
 
       final json = colorData.toJson();
 
@@ -128,7 +128,7 @@ void main() {
     });
 
     test('should implement copyWith correctly', () {
-      final colorData = ColorData(red: 0.1, green: 0.2, blue: 0.3);
+      final colorData = const ColorData(red: 0.1, green: 0.2, blue: 0.3);
 
       final copied = colorData.copyWith(red: 0.4);
 
@@ -138,11 +138,11 @@ void main() {
     });
 
     test('should correctly implement equality', () {
-      final color1 = ColorData(red: 0.1, green: 0.2, blue: 0.3);
+      final color1 = const ColorData(red: 0.1, green: 0.2, blue: 0.3);
 
-      final color2 = ColorData(red: 0.1, green: 0.2, blue: 0.3);
+      final color2 = const ColorData(red: 0.1, green: 0.2, blue: 0.3);
 
-      final color3 = ColorData(red: 0.4, green: 0.2, blue: 0.3);
+      final color3 = const ColorData(red: 0.4, green: 0.2, blue: 0.3);
 
       expect(color1, equals(color2));
       expect(color1, isNot(equals(color3)));

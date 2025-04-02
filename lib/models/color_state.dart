@@ -31,7 +31,7 @@ abstract class ColorState with _$ColorState {
   }) = _ColorState;
 
   /// Creates an initial [ColorState] with white as the current color and an empty history.
-  factory ColorState.initial() => ColorState(
+  factory ColorState.initial() => const ColorState(
     currentColor: ColorData(red: 1.0, green: 1.0, blue: 1.0),
     colorHistory: [],
   );

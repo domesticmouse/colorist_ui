@@ -17,7 +17,7 @@ enum LogEntryType { text, error, warning, info }
 /// Represents the role or source of a log entry.
 enum LogEntryRole { user, llm, app, tool }
 
-final _uuid = Uuid();
+final _uuid = const Uuid();
 
 /// Represents a single entry in the application's log.  Each entry contains
 /// information about the event that occurred, who or what caused it, and a

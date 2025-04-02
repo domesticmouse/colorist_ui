@@ -12,6 +12,7 @@ linter:
     close_sinks: true
     directives_ordering: true
     package_prefixed_library_names: true
+    prefer_const_constructors: true
     prefer_relative_imports: true
     prefer_single_quotes: true
     sort_pub_dependencies: true

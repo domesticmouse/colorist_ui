@@ -126,7 +126,7 @@ void main() {
         timestamp: now,
       );
 
-      final later = now.add(Duration(minutes: 5));
+      final later = now.add(const Duration(minutes: 5));
       final copied = logEntry.copyWith(
         content: 'Updated content',
         type: LogEntryType.warning,

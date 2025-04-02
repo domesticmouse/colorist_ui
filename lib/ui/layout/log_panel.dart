@@ -17,8 +17,8 @@ class LogPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final padding = switch (Device.of(context)) {
-      DeviceType.phone => EdgeInsets.all(12.0),
-      DeviceType.desktop => EdgeInsets.all(16.0),
+      DeviceType.phone => const EdgeInsets.all(12.0),
+      DeviceType.desktop => const EdgeInsets.all(16.0),
     };
 
     return Padding(
@@ -34,8 +34,8 @@ class LogPanel extends StatelessWidget {
               DeviceType.desktop => TextAlign.start,
             },
           ),
-          SizedBox(height: 8),
-          Expanded(child: LogView()),
+          const SizedBox(height: 8),
+          const Expanded(child: LogView()),
         ],
       ),
     );

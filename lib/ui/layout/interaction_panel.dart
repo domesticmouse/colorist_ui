@@ -35,8 +35,8 @@ class InteractionPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final padding = switch (Device.of(context)) {
-      DeviceType.phone => EdgeInsets.all(12.0),
-      DeviceType.desktop => EdgeInsets.all(16.0),
+      DeviceType.phone => const EdgeInsets.all(12.0),
+      DeviceType.desktop => const EdgeInsets.all(16.0),
     };
 
     return Padding(
@@ -45,13 +45,13 @@ class InteractionPanel extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           switch (Device.of(context)) {
-            DeviceType.phone => Center(child: ColorDisplay()),
-            DeviceType.desktop => ColorDisplay(),
+            DeviceType.phone => const Center(child: ColorDisplay()),
+            DeviceType.desktop => const ColorDisplay(),
           },
 
-          DeviceSizedBox(phoneHeight: 12, desktopHeight: 16),
-          ColorInfo(),
-          DeviceSizedBox(phoneHeight: 12, desktopHeight: 16),
+          const DeviceSizedBox(phoneHeight: 12, desktopHeight: 16),
+          const ColorInfo(),
+          const DeviceSizedBox(phoneHeight: 12, desktopHeight: 16),
           ColorHistory(
             notifyColorSelection:
                 notifyColorSelection ??
@@ -64,7 +64,7 @@ class InteractionPanel extends StatelessWidget {
           ),
 
           // Chat section
-          Expanded(child: MessagesList()),
+          const Expanded(child: MessagesList()),
 
           // Input section
           ChatInput(

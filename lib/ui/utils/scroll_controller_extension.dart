@@ -12,7 +12,7 @@ extension ScrollControllerExtension on ScrollController {
       if (hasClients) {
         animateTo(
           position.maxScrollExtent,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           curve: Curves.easeOut,
         );
       }

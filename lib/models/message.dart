@@ -9,7 +9,7 @@ part 'message.freezed.dart';
 part 'message.g.dart';
 
 /// A UUID generator for creating unique message IDs.
-final _uuid = Uuid();
+final _uuid = const Uuid();
 
 /// Represents the role of a message sender (user or LLM).
 enum MessageRole { user, llm }

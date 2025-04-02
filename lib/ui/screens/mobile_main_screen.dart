@@ -46,7 +46,7 @@ class _MobileMainScreenState extends State<MobileMainScreen> {
               sendMessage: widget.sendMessage,
             ),
           ),
-          SafeArea(child: LogPanel()),
+          const SafeArea(child: LogPanel()),
         ],
       ),
       bottomNavigationBar: NavigationBar(
@@ -57,11 +57,11 @@ class _MobileMainScreenState extends State<MobileMainScreen> {
           });
         },
         destinations: [
-          NavigationDestination(
+          const NavigationDestination(
             icon: Icon(Icons.chat_bubble_outline),
             label: 'Chat',
           ),
-          NavigationDestination(icon: Icon(Icons.info_outline), label: 'Log'),
+          const NavigationDestination(icon: Icon(Icons.info_outline), label: 'Log'),
         ],
       ),
     );

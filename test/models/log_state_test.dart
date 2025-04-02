@@ -52,7 +52,7 @@ void main() {
       });
 
       test('logUserText preserves existing state', () {
-        final initialState = LogState(logEntries: []);
+        final initialState = const LogState(logEntries: []);
 
         final updatedState = initialState.logUserText('User text');
 

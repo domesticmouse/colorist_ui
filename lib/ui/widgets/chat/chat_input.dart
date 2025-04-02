@@ -39,7 +39,7 @@ class _ChatInputState extends State<ChatInput> {
   void _handleSubmitted(String text) {
     if (widget.conversationState == ConversationState.busy) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Please wait for the current response to complete'),
           duration: Duration(seconds: 2),
         ),
@@ -75,7 +75,7 @@ class _ChatInputState extends State<ChatInput> {
           DeviceType.desktop => 0,
         },
       ),
-      padding: EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
@@ -111,7 +111,7 @@ class _ChatInputState extends State<ChatInput> {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.send),
+            icon: const Icon(Icons.send),
             padding: EdgeInsets.all(switch (Device.of(context)) {
               DeviceType.phone => 12,
               DeviceType.desktop => 8,

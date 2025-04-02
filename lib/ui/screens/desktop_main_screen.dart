@@ -40,8 +40,8 @@ class DesktopMainScreen extends StatelessWidget {
               sendMessage: sendMessage,
             ),
           ),
-          VerticalDivider(width: 1, thickness: 1),
-          Expanded(child: LogPanel()),
+          const VerticalDivider(width: 1, thickness: 1),
+          const Expanded(child: LogPanel()),
         ],
       ),
     );

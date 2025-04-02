@@ -38,8 +38,8 @@ class ColorHistory extends ConsumerWidget {
     };
 
     if (colorHistory.isEmpty) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+      return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 8.0),
         child: Text(
           'No color history yet',
           style: TextStyle(fontStyle: FontStyle.italic, color: Colors.grey),
@@ -68,7 +68,7 @@ class ColorHistory extends ConsumerWidget {
                   child: Container(
                     width: thumbnailSize,
                     height: thumbnailSize,
-                    margin: EdgeInsets.only(right: 8),
+                    margin: const EdgeInsets.only(right: 8),
                     decoration: BoxDecoration(
                       color: color.color,
                       borderRadius: BorderRadius.circular(4),
@@ -78,7 +78,7 @@ class ColorHistory extends ConsumerWidget {
                           color: Colors.black.withAlpha(20),
                           spreadRadius: 1,
                           blurRadius: 2,
-                          offset: Offset(0, 1),
+                          offset: const Offset(0, 1),
                         ),
                       ],
                     ),

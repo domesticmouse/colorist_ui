@@ -45,7 +45,7 @@ void main() {
     });
 
     test('should update message content and timestamp', () {
-      final originalTime = DateTime.now().subtract(Duration(hours: 1));
+      final originalTime = DateTime.now().subtract(const Duration(hours: 1));
       final originalMessage = Message(
         id: 'update-test',
         content: 'Initial content',
@@ -117,7 +117,7 @@ void main() {
         state: MessageState.complete,
       );
 
-      final later = now.add(Duration(minutes: 5));
+      final later = now.add(const Duration(minutes: 5));
       final copied = message.copyWith(
         content: 'Updated content',
         updatedAt: later,

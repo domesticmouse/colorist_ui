@@ -126,7 +126,7 @@ void main() {
           final initialColor = initialState.currentColor;
 
           // Create a new color and set it
-          final newColor = ColorData(red: 0.5, green: 0.7, blue: 0.9);
+          final newColor = const ColorData(red: 0.5, green: 0.7, blue: 0.9);
 
           notifier.updateColor(
             red: newColor.red,
@@ -160,7 +160,7 @@ void main() {
         }
 
         // Add an 11th color
-        final customColor = ColorData(red: 0.25, green: 0.25, blue: 0.25);
+        final customColor = const ColorData(red: 0.25, green: 0.25, blue: 0.25);
 
         notifier.updateColor(
           red: customColor.red,

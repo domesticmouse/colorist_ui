@@ -22,13 +22,13 @@ class ErrorScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.error_outlined, size: 48, color: Colors.red),
-              SizedBox(height: 16),
+              const Icon(Icons.error_outlined, size: 48, color: Colors.red),
+              const SizedBox(height: 16),
               Text(
                 'Error Initializing App',
                 style: TextTheme.of(context).headlineMedium,
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text('$error'),
             ],
           ),
