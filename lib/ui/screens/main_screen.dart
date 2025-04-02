@@ -30,17 +30,20 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return switch (Device.of(context)) {
-      DeviceType.phone => MobileMainScreen(
-        conversationState: conversationState,
-        notifyColorSelection: notifyColorSelection,
-        sendMessage: sendMessage,
-      ),
-      DeviceType.desktop => DesktopMainScreen(
-        conversationState: conversationState,
-        notifyColorSelection: notifyColorSelection,
-        sendMessage: sendMessage,
-      ),
-    };
+    return SelectableRegion(
+      selectionControls: materialTextSelectionControls,
+      child: switch (Device.of(context)) {
+        DeviceType.phone => MobileMainScreen(
+          conversationState: conversationState,
+          notifyColorSelection: notifyColorSelection,
+          sendMessage: sendMessage,
+        ),
+        DeviceType.desktop => DesktopMainScreen(
+          conversationState: conversationState,
+          notifyColorSelection: notifyColorSelection,
+          sendMessage: sendMessage,
+        ),
+      },
+    );
   }
 }

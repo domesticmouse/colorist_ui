@@ -23,41 +23,44 @@ class LogEntryWidget extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Container(
-        padding: EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: backgroundColor.withAlpha(25),
-          borderRadius: BorderRadius.circular(4),
-          border: Border.all(color: backgroundColor.withAlpha(50)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Header with timestamp and source
-            Row(
-              children: [
-                SelectableText(
-                  '${_formatTime(entry.timestamp)} - $prefix',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'monospace',
-                    color: textColor,
+      child: SelectableRegion(
+        selectionControls: materialTextSelectionControls,
+        child: Container(
+          padding: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: backgroundColor.withAlpha(25),
+            borderRadius: BorderRadius.circular(4),
+            border: Border.all(color: backgroundColor.withAlpha(50)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Header with timestamp and source
+              Row(
+                children: [
+                  Text(
+                    '${_formatTime(entry.timestamp)} - $prefix',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'monospace',
+                      color: textColor,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 4),
-            // Content
-            SelectableText(
-              entry.content,
-              style: TextStyle(
-                fontSize: 13,
-                fontFamily: 'monospace',
-                color: textColor.withAlpha(230),
+                ],
               ),
-            ),
-          ],
+              SizedBox(height: 4),
+              // Content
+              Text(
+                entry.content,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontFamily: 'monospace',
+                  color: textColor.withAlpha(230),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

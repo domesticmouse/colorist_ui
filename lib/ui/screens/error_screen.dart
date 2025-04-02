@@ -16,19 +16,22 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.error_outlined, size: 48, color: Colors.red),
-            SizedBox(height: 16),
-            Text(
-              'Error Initializing App',
-              style: TextTheme.of(context).headlineMedium,
-            ),
-            SizedBox(height: 8),
-            Text('$error'),
-          ],
+      body: SelectableRegion(
+        selectionControls: materialTextSelectionControls,
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.error_outlined, size: 48, color: Colors.red),
+              SizedBox(height: 16),
+              Text(
+                'Error Initializing App',
+                style: TextTheme.of(context).headlineMedium,
+              ),
+              SizedBox(height: 8),
+              Text('$error'),
+            ],
+          ),
         ),
       ),
     );

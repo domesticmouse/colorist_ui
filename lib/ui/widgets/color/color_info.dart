@@ -34,7 +34,7 @@ class ColorInfo extends ConsumerWidget {
           ],
         ),
         Center(
-          child: SelectableText(
+          child: Text(
             currentColor.hexCode,
             style: TextStyle(fontFamily: 'monospace', fontSize: 14),
           ),
