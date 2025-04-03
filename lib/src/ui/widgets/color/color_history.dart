@@ -39,7 +39,7 @@ class ColorHistory extends ConsumerWidget {
 
     if (colorHistory.isEmpty) {
       return const Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.0),
+        padding: EdgeInsets.symmetric(vertical: 8),
         child: Text(
           'No color history yet',
           style: TextStyle(fontStyle: FontStyle.italic, color: Colors.grey),
@@ -62,7 +62,7 @@ class ColorHistory extends ConsumerWidget {
                         .read(colorStateNotifierProvider.notifier)
                         .selectColorFromHistory(index);
 
-                    // Notify the LLM about the manual selection
+                    // Notify the LLM about the manual selection.
                     notifyColorSelection(color);
                   },
                   child: Container(

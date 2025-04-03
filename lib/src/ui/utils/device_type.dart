@@ -4,12 +4,13 @@
 
 import 'package:flutter/material.dart';
 
-/// Enum representing the type of device: phone or desktop.
+/// A type of device: phone or desktop.
 enum DeviceType { phone, desktop }
 
 /// Utility class for determining the device type based on screen width.
-class Device {
-  /// Returns the [DeviceType] based on the screen width of the provided context.
+abstract final class Device {
+  /// Returns the [DeviceType] based on the screen width of
+  /// the provided [context].
   static DeviceType of(BuildContext context) {
     return switch (MediaQuery.sizeOf(context).width) {
       <= 600 => DeviceType.phone,

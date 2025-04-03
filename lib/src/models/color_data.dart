@@ -43,7 +43,7 @@ abstract class ColorData with _$ColorData {
       ColorData(red: color.r, green: color.g, blue: color.b);
 
   /// Creates a [ColorData] object from a JSON map.
-  factory ColorData.fromJson(Map<String, dynamic> json) =>
+  factory ColorData.fromJson(Map<String, Object?> json) =>
       _$ColorDataFromJson(json);
 
   /// Returns the hex code representation of the color (#RRGGBB).

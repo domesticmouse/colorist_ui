@@ -17,7 +17,7 @@ enum LogEntryType { text, error, warning, info }
 /// Represents the role or source of a log entry.
 enum LogEntryRole { user, llm, app, tool }
 
-final _uuid = const Uuid();
+const _uuid = Uuid();
 
 /// Represents a single entry in the application's log.  Each entry contains
 /// information about the event that occurred, who or what caused it, and a
@@ -122,6 +122,6 @@ abstract class LogEntry with _$LogEntry {
   );
 
   /// Creates a [LogEntry] object from a [json] map.
-  factory LogEntry.fromJson(Map<String, dynamic> json) =>
+  factory LogEntry.fromJson(Map<String, Object?> json) =>
       _$LogEntryFromJson(json);
 }

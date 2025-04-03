@@ -64,22 +64,22 @@ class _ChatInputState extends State<ChatInput> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final colorScheme = ColorScheme.of(context);
     final isProcessing = widget.conversationState == ConversationState.busy;
 
     return Container(
       margin: EdgeInsets.only(
         top: 8,
         bottom: switch (Device.of(context)) {
-          DeviceType.phone => MediaQuery.of(context).padding.bottom,
+          DeviceType.phone => MediaQuery.paddingOf(context).bottom,
           DeviceType.desktop => 0,
         },
       ),
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: theme.colorScheme.outline.withAlpha(128)),
+        border: Border.all(color: colorScheme.outline.withAlpha(128)),
       ),
       child: Row(
         children: [
@@ -118,8 +118,8 @@ class _ChatInputState extends State<ChatInput> {
             }),
             color:
                 _isComposing && !isProcessing
-                    ? theme.colorScheme.primary
-                    : theme.colorScheme.outline.withAlpha(128),
+                    ? colorScheme.primary
+                    : colorScheme.outline.withAlpha(128),
             onPressed:
                 _isComposing && !isProcessing
                     ? () => _handleSubmitted(_textController.text)

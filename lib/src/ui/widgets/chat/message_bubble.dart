@@ -13,15 +13,15 @@ import '../../../models/message.dart';
 /// the message was sent by the user or the AI.  It handles different message
 /// states, such as streaming messages (indicated by a "Thinking..." indicator).
 class MessageBubble extends StatelessWidget {
-  final Message message;
-
   const MessageBubble({required this.message, super.key});
+
+  final Message message;
 
   @override
   Widget build(BuildContext context) {
     final isUser = message.role == MessageRole.user;
     final isStreaming = message.state == MessageState.streaming;
-    final theme = Theme.of(context);
+    final colorScheme = ColorScheme.of(context);
 
     return Align(
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
@@ -34,45 +34,41 @@ class MessageBubble extends StatelessWidget {
         decoration: BoxDecoration(
           color:
               isUser
-                  ? theme.colorScheme.primary.withAlpha(25)
-                  : theme.colorScheme.surfaceContainerHighest,
+                  ? colorScheme.primary.withAlpha(25)
+                  : colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color:
                 isUser
-                    ? theme.colorScheme.primary.withAlpha(50)
-                    : theme.colorScheme.outlineVariant,
+                    ? colorScheme.primary.withAlpha(50)
+                    : colorScheme.outlineVariant,
           ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 8,
           children: [
             MarkdownBody(
               data: message.content,
               selectable: true,
               styleSheet: MarkdownStyleSheet(p: const TextStyle(height: 1.4)),
             ),
-            if (isStreaming) ...[
-              const SizedBox(height: 8),
+            if (isStreaming)
               Row(
                 mainAxisSize: MainAxisSize.min,
+                spacing: 8,
                 children: [
                   const SizedBox(
                     width: 12,
                     height: 12,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   ),
-                  const SizedBox(width: 8),
                   Text(
                     'Thinking...',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: theme.colorScheme.outline,
-                    ),
+                    style: TextStyle(fontSize: 12, color: colorScheme.outline),
                   ),
                 ],
               ),
-            ],
           ],
         ),
       ),

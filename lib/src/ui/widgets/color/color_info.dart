@@ -25,11 +25,10 @@ class ColorInfo extends ConsumerWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 8,
           children: [
             _ColorValueChip(label: 'R', value: red, color: Colors.red),
-            const SizedBox(width: 8),
             _ColorValueChip(label: 'G', value: green, color: Colors.green),
-            const SizedBox(width: 8),
             _ColorValueChip(label: 'B', value: blue, color: Colors.blue),
           ],
         ),
