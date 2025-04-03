@@ -34,13 +34,11 @@ class InteractionPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final padding = switch (Device.of(context)) {
-      DeviceType.phone => const EdgeInsets.all(12.0),
-      DeviceType.desktop => const EdgeInsets.all(16.0),
-    };
-
     return Padding(
-      padding: padding,
+      padding: switch (Device.of(context)) {
+        DeviceType.phone => const EdgeInsets.all(12),
+        DeviceType.desktop => const EdgeInsets.all(16),
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

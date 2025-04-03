@@ -85,7 +85,7 @@ void main() {
 
       final contextMap = colorData.toLLMContextMap();
 
-      expect(contextMap, isA<Map<String, dynamic>>());
+      expect(contextMap, isA<Map<String, Object?>>());
       expect(contextMap['red'], equals(0.4));
       expect(contextMap['green'], equals(0.5));
       expect(contextMap['blue'], equals(0.6));

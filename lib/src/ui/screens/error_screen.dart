@@ -25,7 +25,7 @@ class ErrorScreen extends StatelessWidget {
               const Icon(Icons.error_outlined, size: 48, color: Colors.red),
               const SizedBox(height: 16),
               Text(
-                'Error Initializing App',
+                'Error initializing app',
                 style: TextTheme.of(context).headlineMedium,
               ),
               const SizedBox(height: 8),

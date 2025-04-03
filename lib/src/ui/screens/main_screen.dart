@@ -129,15 +129,12 @@ class _MobileMainScreenState extends State<_MobileMainScreen> {
             _selectedIndex = index;
           });
         },
-        destinations: [
-          const NavigationDestination(
+        destinations: const [
+          NavigationDestination(
             icon: Icon(Icons.chat_bubble_outline),
             label: 'Chat',
           ),
-          const NavigationDestination(
-            icon: Icon(Icons.info_outline),
-            label: 'Log',
-          ),
+          NavigationDestination(icon: Icon(Icons.info_outline), label: 'Log'),
         ],
       ),
     );

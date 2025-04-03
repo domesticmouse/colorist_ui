@@ -15,29 +15,25 @@ class LogPanel extends StatelessWidget {
   const LogPanel({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final padding = switch (Device.of(context)) {
-      DeviceType.phone => const EdgeInsets.all(12.0),
-      DeviceType.desktop => const EdgeInsets.all(16.0),
-    };
-
-    return Padding(
-      padding: padding,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            'Interaction Log',
-            style: Theme.of(context).textTheme.titleLarge,
-            textAlign: switch (Device.of(context)) {
-              DeviceType.phone => TextAlign.center,
-              DeviceType.desktop => TextAlign.start,
-            },
-          ),
-          const SizedBox(height: 8),
-          const Expanded(child: LogView()),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Padding(
+    padding: switch (Device.of(context)) {
+      DeviceType.phone => const EdgeInsets.all(12),
+      DeviceType.desktop => const EdgeInsets.all(16),
+    },
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: 8,
+      children: [
+        Text(
+          'Interaction log',
+          style: TextTheme.of(context).titleLarge,
+          textAlign: switch (Device.of(context)) {
+            DeviceType.phone => TextAlign.center,
+            DeviceType.desktop => TextAlign.start,
+          },
+        ),
+        const Expanded(child: LogView()),
+      ],
+    ),
+  );
 }

@@ -56,6 +56,6 @@ abstract class LogState with _$LogState {
       copyWith(logEntries: [...logEntries, LogEntry.info(info)]);
 
   /// Creates a [LogState] object from a [json] map.
-  factory LogState.fromJson(Map<String, dynamic> json) =>
+  factory LogState.fromJson(Map<String, Object?> json) =>
       _$LogStateFromJson(json);
 }

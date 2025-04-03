@@ -30,7 +30,8 @@ abstract class ColorState with _$ColorState {
     required List<ColorData> colorHistory,
   }) = _ColorState;
 
-  /// Creates an initial [ColorState] with white as the current color and an empty history.
+  /// Creates an initial [ColorState] with
+  /// white as the current color and an empty history.
   factory ColorState.initial() => const ColorState(
     currentColor: ColorData(red: 1.0, green: 1.0, blue: 1.0),
     colorHistory: [],
@@ -70,9 +71,9 @@ abstract class ColorState with _$ColorState {
 
   /// Updates the current color with new [red], [green], and [blue] values.
   ///
-  /// All components must be in the range `0.0` to `1.0`. Returns a new [ColorState]
-  /// with the updated current color. The current color is added to the history
-  /// before the update.
+  /// All components must be in the range `0.0` to `1.0`.
+  /// Returns a new [ColorState] with the updated current color.
+  /// The current color is added to the history before the update.
   ColorState updateColor({
     required double red,
     required double green,
@@ -85,6 +86,6 @@ abstract class ColorState with _$ColorState {
   }
 
   /// Creates a [ColorState] object from a JSON map.
-  factory ColorState.fromJson(Map<String, dynamic> json) =>
+  factory ColorState.fromJson(Map<String, Object?> json) =>
       _$ColorStateFromJson(json);
 }

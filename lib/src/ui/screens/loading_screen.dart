@@ -21,11 +21,8 @@ class LoadingScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            const CircularProgressIndicator(),
-            const SizedBox(height: 16),
-            Text(message),
-          ],
+          spacing: 16,
+          children: [const CircularProgressIndicator(), Text(message)],
         ),
       ),
     );

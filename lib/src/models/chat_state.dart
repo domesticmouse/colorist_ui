@@ -70,6 +70,6 @@ abstract class ChatState with _$ChatState {
   ChatState clearMessages() => copyWith(messages: []);
 
   /// Creates a [ChatState] instance from a JSON map.
-  factory ChatState.fromJson(Map<String, dynamic> json) =>
+  factory ChatState.fromJson(Map<String, Object?> json) =>
       _$ChatStateFromJson(json);
 }

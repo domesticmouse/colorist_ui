@@ -9,7 +9,7 @@ part 'message.freezed.dart';
 part 'message.g.dart';
 
 /// A UUID generator for creating unique message IDs.
-final _uuid = const Uuid();
+const _uuid = Uuid();
 
 /// Represents the role of a message sender (user or LLM).
 enum MessageRole { user, llm }
@@ -39,7 +39,7 @@ abstract class Message with _$Message {
   }) = _Message;
 
   /// Creates a [Message] instance from a JSON map.
-  factory Message.fromJson(Map<String, dynamic> json) =>
+  factory Message.fromJson(Map<String, Object?> json) =>
       _$MessageFromJson(json);
 
   /// Creates a user message with the given [content].  The message is marked
