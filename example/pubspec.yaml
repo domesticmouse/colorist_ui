@@ -9,6 +9,7 @@ environment:
 dependencies:
   colorist_ui:
     path: ..
+    version: any
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.6.1
