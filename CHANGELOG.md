@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.1.1
+
+* Add the ability to reset Chat state, Color state, and Log state.
+
 ## 0.1.0
 
 * Simplify the exposed API to a single import.

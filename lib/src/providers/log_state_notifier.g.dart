@@ -6,7 +6,7 @@ part of 'log_state_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$logStateNotifierHash() => r'b88dbef1bba1a62013e7cb25173d8fe3eba0dee1';
+String _$logStateNotifierHash() => r'9f17e243a57f73934641b582be4190b4e9ffc7a3';
 
 /// A Riverpod provider that manages the application's log state.  This notifier
 /// provides methods to add various types of log entries, such as user input,

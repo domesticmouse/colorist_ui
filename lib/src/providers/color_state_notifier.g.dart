@@ -7,7 +7,7 @@ part of 'color_state_notifier.dart';
 // **************************************************************************
 
 String _$colorStateNotifierHash() =>
-    r'85c576b0f8fd079c79f3483f6659dd0ed6a5877a';
+    r'244cb2d7a9c863c11cd59de570bf4a7ad4fbf3ff';
 
 /// A Riverpod provider that manages the state of the color picker.
 /// This notifier allows selecting colors from the history and updating

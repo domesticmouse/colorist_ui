@@ -39,4 +39,9 @@ class ColorStateNotifier extends _$ColorStateNotifier {
     state = state.updateColor(red: red, green: green, blue: blue);
     return state.currentColor;
   }
+
+  /// Reset state.
+  void reset() {
+    state = ColorState.initial();
+  }
 }
