@@ -4,7 +4,8 @@
 
 import 'package:flutter/material.dart';
 
-/// Extension on [ScrollController] to add a method for smoothly scrolling to the bottom.
+/// Extension on [ScrollController] to add a method for
+/// smoothly scrolling to the bottom.
 extension ScrollControllerExtension on ScrollController {
   /// Animates the scroll view to the bottom after the current frame.
   void scrollToBottomAfterFrame() {
