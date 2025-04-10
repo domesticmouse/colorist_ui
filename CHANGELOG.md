@@ -1,5 +1,10 @@
 # Colorist UI Changelog
 
+## 0.1.2
+
+* Update UI labels to use sentence case.
+* Add and clean up a few API docs.
+
 ## 0.1.1
 
 * Add the ability to reset Chat state, Color state, and Log state.
