@@ -66,7 +66,7 @@ void main() {
           equals(2),
         );
 
-        notifier.clearMessages();
+        notifier.reset();
 
         final state = container.read(chatStateNotifierProvider);
         expect(state.messages, isEmpty);

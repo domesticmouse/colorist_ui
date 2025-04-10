@@ -28,6 +28,24 @@ void main() {
       expect(state.logEntries, isEmpty);
     });
 
+    test('reset state empties logs', () {
+      final notifier = container.read(logStateNotifierProvider.notifier);
+
+      notifier.logUserText('User input');
+      notifier.logLlmText('LLM response');
+      notifier.logError(Exception('Test error'));
+      notifier.logWarning('Warning message');
+      notifier.logInfo('Info message');
+
+      final state = container.read(logStateNotifierProvider);
+      expect(state.logEntries.length, equals(5));
+
+      notifier.reset();
+
+      final resetState = container.read(logStateNotifierProvider);
+      expect(resetState.logEntries.length, equals(0));
+    });
+
     group('Logging Operations', () {
       test('logUserText adds user text entry', () {
         final notifier = container.read(logStateNotifierProvider.notifier);

@@ -59,4 +59,9 @@ class LogStateNotifier extends _$LogStateNotifier {
   void logInfo(String info) {
     state = state.logInfo(info);
   }
+
+  /// Reset state.
+  void reset() {
+    state = LogState.initial();
+  }
 }

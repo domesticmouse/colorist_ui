@@ -6,7 +6,7 @@ part of 'chat_state_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$chatStateNotifierHash() => r'50e558a607cf53eefd94879677e26399c99abe1c';
+String _$chatStateNotifierHash() => r'77eca0bd3183f933482d16d21b5a49c915ca0d85';
 
 /// A Riverpod provider that manages the state of a chat conversation.
 /// This notifier allows adding user and LLM messages, clearing the chat,

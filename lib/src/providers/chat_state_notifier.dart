@@ -51,10 +51,8 @@ class ChatStateNotifier extends _$ChatStateNotifier {
     state = state.finalizeMessage(id);
   }
 
-  /// Clears all messages from the chat history.
-  ///
-  /// Primarily for testing purposes.
-  void clearMessages() {
-    state = state.clearMessages();
+  /// Reset state.
+  void reset() {
+    state = ChatState.initial();
   }
 }

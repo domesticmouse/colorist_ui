@@ -51,6 +51,16 @@ void main() {
         expect(updatedState.colorHistory.first.red, equals(1.0));
         expect(updatedState.colorHistory.first.green, equals(1.0));
         expect(updatedState.colorHistory.first.blue, equals(1.0));
+
+        // Reset state
+        notifier.reset();
+
+        // Expect current color is white, history is empty
+        final finalState = container.read(colorStateNotifierProvider);
+        expect(finalState.currentColor.red, equals(1.0));
+        expect(finalState.currentColor.green, equals(1.0));
+        expect(finalState.currentColor.blue, equals(1.0));
+        expect(finalState.colorHistory, isEmpty);
       });
 
       test('addCurrentColorToHistory prevents duplicate entries', () {
