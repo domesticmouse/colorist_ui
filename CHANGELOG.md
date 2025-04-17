@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.1.3
+
+* Drop minimum Dart SDK version to 3.7.0-0
+
 ## 0.1.2
 
 * Update UI labels to use sentence case.
