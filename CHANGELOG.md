@@ -2,7 +2,7 @@
 
 ## 0.1.3
 
-* Drop minimum Dart SDK version to 3.7.0-0
+* Drop minimum Dart SDK version to 3.6.0
 
 ## 0.1.2
 
