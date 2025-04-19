@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.2.1
+
+* Drop `collection` version minimum for [firebase.studio](https://firebase.studio/)
+
 ## 0.2.0
 
 * Reformat for Dart 3.6.0.
