@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.2.2
+
+* Drop `characters` version minimum for [firebase.studio](https://firebase.studio/)
+
 ## 0.2.1
 
 * Drop `collection` version minimum for [firebase.studio](https://firebase.studio/)
