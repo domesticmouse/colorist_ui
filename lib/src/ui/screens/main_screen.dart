@@ -33,15 +33,15 @@ class MainScreen extends StatelessWidget {
       selectionControls: materialTextSelectionControls,
       child: switch (Device.of(context)) {
         DeviceType.phone => _MobileMainScreen(
-          conversationState: conversationState,
-          notifyColorSelection: notifyColorSelection,
-          sendMessage: sendMessage,
-        ),
+            conversationState: conversationState,
+            notifyColorSelection: notifyColorSelection,
+            sendMessage: sendMessage,
+          ),
         DeviceType.desktop => _DesktopMainScreen(
-          conversationState: conversationState,
-          notifyColorSelection: notifyColorSelection,
-          sendMessage: sendMessage,
-        ),
+            conversationState: conversationState,
+            notifyColorSelection: notifyColorSelection,
+            sendMessage: sendMessage,
+          ),
       },
     );
   }

@@ -32,16 +32,14 @@ class MessageBubble extends StatelessWidget {
           maxWidth: MediaQuery.sizeOf(context).width * 0.7,
         ),
         decoration: BoxDecoration(
-          color:
-              isUser
-                  ? colorScheme.primary.withAlpha(25)
-                  : colorScheme.surfaceContainerHighest,
+          color: isUser
+              ? colorScheme.primary.withAlpha(25)
+              : colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color:
-                isUser
-                    ? colorScheme.primary.withAlpha(50)
-                    : colorScheme.outlineVariant,
+            color: isUser
+                ? colorScheme.primary.withAlpha(50)
+                : colorScheme.outlineVariant,
           ),
         ),
         child: Column(

@@ -1,8 +1,13 @@
 # Colorist UI Changelog
 
+## 0.2.0
+
+* Reformat for Dart 3.6.0.
+* Bump version for firebase.studio
+
 ## 0.1.3
 
-* Drop minimum Dart SDK version to 3.6.0
+* Drop minimum Dart SDK version to 3.6.0.
 
 ## 0.1.2
 

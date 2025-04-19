@@ -88,10 +88,9 @@ class _ChatInputState extends State<ChatInput> {
               controller: _textController,
               focusNode: _focusNode,
               decoration: InputDecoration(
-                hintText:
-                    isProcessing
-                        ? 'Waiting for response...'
-                        : 'Describe a color...',
+                hintText: isProcessing
+                    ? 'Waiting for response...'
+                    : 'Describe a color...',
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 16,
@@ -116,14 +115,12 @@ class _ChatInputState extends State<ChatInput> {
               DeviceType.phone => 12,
               DeviceType.desktop => 8,
             }),
-            color:
-                _isComposing && !isProcessing
-                    ? colorScheme.primary
-                    : colorScheme.outline.withAlpha(128),
-            onPressed:
-                _isComposing && !isProcessing
-                    ? () => _handleSubmitted(_textController.text)
-                    : null,
+            color: _isComposing && !isProcessing
+                ? colorScheme.primary
+                : colorScheme.outline.withAlpha(128),
+            onPressed: _isComposing && !isProcessing
+                ? () => _handleSubmitted(_textController.text)
+                : null,
           ),
         ],
       ),

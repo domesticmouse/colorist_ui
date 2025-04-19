@@ -16,24 +16,24 @@ class LogPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: switch (Device.of(context)) {
-      DeviceType.phone => const EdgeInsets.all(12),
-      DeviceType.desktop => const EdgeInsets.all(16),
-    },
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      spacing: 8,
-      children: [
-        Text(
-          'Interaction log',
-          style: TextTheme.of(context).titleLarge,
-          textAlign: switch (Device.of(context)) {
-            DeviceType.phone => TextAlign.center,
-            DeviceType.desktop => TextAlign.start,
-          },
+        padding: switch (Device.of(context)) {
+          DeviceType.phone => const EdgeInsets.all(12),
+          DeviceType.desktop => const EdgeInsets.all(16),
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          spacing: 8,
+          children: [
+            Text(
+              'Interaction log',
+              style: TextTheme.of(context).titleLarge,
+              textAlign: switch (Device.of(context)) {
+                DeviceType.phone => TextAlign.center,
+                DeviceType.desktop => TextAlign.start,
+              },
+            ),
+            const Expanded(child: LogView()),
+          ],
         ),
-        const Expanded(child: LogView()),
-      ],
-    ),
-  );
+      );
 }

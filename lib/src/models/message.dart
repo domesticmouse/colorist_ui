@@ -45,28 +45,28 @@ abstract class Message with _$Message {
   /// Creates a user message with the given [content].  The message is marked
   /// as complete.
   factory Message.userMessage(String content) => Message(
-    id: _uuid.v4(),
-    content: content,
-    role: MessageRole.user,
-    updatedAt: DateTime.now().toUtc(),
-    state: MessageState.complete,
-  );
+        id: _uuid.v4(),
+        content: content,
+        role: MessageRole.user,
+        updatedAt: DateTime.now().toUtc(),
+        state: MessageState.complete,
+      );
 
   /// Creates an LLM message with the given [content] and [state].
   factory Message.llmMessage(String content, MessageState state) => Message(
-    id: _uuid.v4(),
-    content: content,
-    role: MessageRole.llm,
-    updatedAt: DateTime.now().toUtc(),
-    state: state,
-  );
+        id: _uuid.v4(),
+        content: content,
+        role: MessageRole.llm,
+        updatedAt: DateTime.now().toUtc(),
+        state: state,
+      );
 
   /// Updates an existing message with additional content and a new state.
   /// Takes the content to add as [addContent] and the new [state] of
   /// the message.
   Message updateMessage(String addContent, MessageState state) => copyWith(
-    content: content + addContent,
-    updatedAt: DateTime.now().toUtc(),
-    state: state,
-  );
+        content: content + addContent,
+        updatedAt: DateTime.now().toUtc(),
+        state: state,
+      );
 }

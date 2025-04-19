@@ -33,9 +33,9 @@ abstract class ColorState with _$ColorState {
   /// Creates an initial [ColorState] with
   /// white as the current color and an empty history.
   factory ColorState.initial() => const ColorState(
-    currentColor: ColorData(red: 1.0, green: 1.0, blue: 1.0),
-    colorHistory: [],
-  );
+        currentColor: ColorData(red: 1.0, green: 1.0, blue: 1.0),
+        colorHistory: [],
+      );
 
   /// Adds the current color to the color history, limiting the history to
   /// [_maxColorHistory] entries. Returns a new [ColorState] with the updated
@@ -46,10 +46,9 @@ abstract class ColorState with _$ColorState {
       return this;
     }
     final newHistory = [currentColor, ...colorHistory];
-    final limitedHistory =
-        newHistory.length > _maxColorHistory
-            ? newHistory.sublist(0, _maxColorHistory)
-            : newHistory;
+    final limitedHistory = newHistory.length > _maxColorHistory
+        ? newHistory.sublist(0, _maxColorHistory)
+        : newHistory;
 
     return copyWith(colorHistory: limitedHistory);
   }

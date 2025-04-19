@@ -51,8 +51,7 @@ class InteractionPanel extends StatelessWidget {
           const ColorInfo(),
           const DeviceSizedBox(phoneHeight: 12, desktopHeight: 16),
           ColorHistory(
-            notifyColorSelection:
-                notifyColorSelection ??
+            notifyColorSelection: notifyColorSelection ??
                 (color) {
                   _log.info(
                     'User selected color from history: '

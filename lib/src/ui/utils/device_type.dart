@@ -47,9 +47,9 @@ class DeviceSizedBox extends StatelessWidget {
     return switch (Device.of(context)) {
       DeviceType.phone => SizedBox(width: phoneWidth, height: phoneHeight),
       DeviceType.desktop => SizedBox(
-        width: desktopWidth,
-        height: desktopHeight,
-      ),
+          width: desktopWidth,
+          height: desktopHeight,
+        ),
     };
   }
 }

@@ -7,14 +7,12 @@ part of 'color_state.dart';
 // **************************************************************************
 
 _ColorState _$ColorStateFromJson(Map<String, dynamic> json) => _ColorState(
-  currentColor: ColorData.fromJson(
-    json['currentColor'] as Map<String, dynamic>,
-  ),
-  colorHistory:
-      (json['colorHistory'] as List<dynamic>)
+      currentColor:
+          ColorData.fromJson(json['currentColor'] as Map<String, dynamic>),
+      colorHistory: (json['colorHistory'] as List<dynamic>)
           .map((e) => ColorData.fromJson(e as Map<String, dynamic>))
           .toList(),
-);
+    );
 
 Map<String, dynamic> _$ColorStateToJson(_ColorState instance) =>
     <String, dynamic>{
