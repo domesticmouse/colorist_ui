@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Stop if anything fails
+set -e
+
 # Generate the freezed and json_serializable code
 dart run build_runner build --delete-conflicting-outputs
 
