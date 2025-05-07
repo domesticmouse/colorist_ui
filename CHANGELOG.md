@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.2.3
+
+* Migrate from `flutter_markdown` to `flutter_markdown_plus`
+
 ## 0.2.2
 
 * Drop `characters` version minimum for [firebase.studio](https://firebase.studio/)
