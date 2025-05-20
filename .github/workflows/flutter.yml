@@ -30,6 +30,7 @@ jobs:
       - name: Check if generated files are up to date
         run: |
           dart run build_runner build --delete-conflicting-outputs
+          find lib -name \*.g.dart | xargs dart format
           git diff --exit-code || (echo "Generated files are outdated. Please run 'dart run build_runner build --delete-conflicting-outputs' and commit the changes." && exit 1)
       - name: Lint analysis
         run: dart analyze --fatal-infos
