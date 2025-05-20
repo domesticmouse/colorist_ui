@@ -20,7 +20,9 @@ void main() {
       );
 
       await tester.pumpWidget(
-        MaterialApp(home: Scaffold(body: MessageBubble(message: message))),
+        MaterialApp(
+          home: Scaffold(body: MessageBubble(message: message)),
+        ),
       );
 
       expect(find.text('Hello'), findsOneWidget);
@@ -38,7 +40,9 @@ void main() {
       );
 
       await tester.pumpWidget(
-        MaterialApp(home: Scaffold(body: MessageBubble(message: message))),
+        MaterialApp(
+          home: Scaffold(body: MessageBubble(message: message)),
+        ),
       );
 
       expect(find.text('Hello there'), findsOneWidget);
@@ -58,7 +62,9 @@ void main() {
       );
 
       await tester.pumpWidget(
-        MaterialApp(home: Scaffold(body: MessageBubble(message: message))),
+        MaterialApp(
+          home: Scaffold(body: MessageBubble(message: message)),
+        ),
       );
 
       expect(find.text('Processing...'), findsOneWidget);
@@ -85,7 +91,9 @@ void main() {
       );
 
       await tester.pumpWidget(
-        MaterialApp(home: Scaffold(body: MessageBubble(message: message))),
+        MaterialApp(
+          home: Scaffold(body: MessageBubble(message: message)),
+        ),
       );
 
       expect(find.byType(MarkdownBody), findsOneWidget);

@@ -56,16 +56,15 @@ class _ColorValueChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        decoration: BoxDecoration(
-          color: color.withAlpha(50),
-          borderRadius: BorderRadius.circular(4),
-          border: Border.all(color: color.withAlpha(128)),
-        ),
-        child: Text(
-          '$label: $value',
-          style:
-              TextStyle(fontFamily: 'monospace', color: color.withAlpha(200)),
-        ),
-      );
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+    decoration: BoxDecoration(
+      color: color.withAlpha(50),
+      borderRadius: BorderRadius.circular(4),
+      border: Border.all(color: color.withAlpha(128)),
+    ),
+    child: Text(
+      '$label: $value',
+      style: TextStyle(fontFamily: 'monospace', color: color.withAlpha(200)),
+    ),
+  );
 }

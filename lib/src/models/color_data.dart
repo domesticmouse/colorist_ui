@@ -32,12 +32,11 @@ abstract class ColorData with _$ColorData {
     required int red,
     required int green,
     required int blue,
-  }) =>
-      ColorData(
-        red: red.toDouble() / 255,
-        green: green.toDouble() / 255,
-        blue: blue.toDouble() / 255,
-      );
+  }) => ColorData(
+    red: red.toDouble() / 255,
+    green: green.toDouble() / 255,
+    blue: blue.toDouble() / 255,
+  );
 
   /// Creates a [ColorData] object from a Flutter [Color] object.
   factory ColorData.fromColor(Color color) =>
@@ -59,9 +58,9 @@ abstract class ColorData with _$ColorData {
   /// Returns a map suitable for use in LLM (Large Language Model) contexts.
   /// Includes red, green, blue components and the hex code.
   Map<String, Object?> toLLMContextMap() => {
-        'red': red,
-        'green': green,
-        'blue': blue,
-        'hexCode': hexCode,
-      };
+    'red': red,
+    'green': green,
+    'blue': blue,
+    'hexCode': hexCode,
+  };
 }

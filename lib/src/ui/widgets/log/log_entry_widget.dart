@@ -72,11 +72,11 @@ class LogEntryWidget extends StatelessWidget {
       '${time.second.toString().padLeft(2, '0')}';
 
   String _getPrefix(LogEntry entry) => switch (entry.author) {
-        LogEntryRole.user => 'USER',
-        LogEntryRole.llm => 'LLM',
-        LogEntryRole.app => 'APP',
-        LogEntryRole.tool => 'TOOL',
-      };
+    LogEntryRole.user => 'USER',
+    LogEntryRole.llm => 'LLM',
+    LogEntryRole.app => 'APP',
+    LogEntryRole.tool => 'TOOL',
+  };
 
   Color _getBackgroundColor(LogEntry entry, ColorScheme colorScheme) =>
       switch (entry.type) {
@@ -84,11 +84,11 @@ class LogEntryWidget extends StatelessWidget {
         LogEntryType.warning => Colors.orange,
         LogEntryType.info => Colors.blue,
         LogEntryType.text => switch (entry.author) {
-            LogEntryRole.user => colorScheme.primary,
-            LogEntryRole.llm => colorScheme.tertiary,
-            LogEntryRole.tool => Colors.green,
-            _ => colorScheme.secondary,
-          },
+          LogEntryRole.user => colorScheme.primary,
+          LogEntryRole.llm => colorScheme.tertiary,
+          LogEntryRole.tool => Colors.green,
+          _ => colorScheme.secondary,
+        },
       };
 
   Color _getTextColor(LogEntry entry, ColorScheme colorScheme) =>

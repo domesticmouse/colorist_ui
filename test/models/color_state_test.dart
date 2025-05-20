@@ -91,8 +91,8 @@ void main() {
       final stateWithHistory = stateWithColor.addCurrentColorToHistory();
 
       // Try to add the same color again
-      final stateWithDuplicateAttempt =
-          stateWithHistory.addCurrentColorToHistory();
+      final stateWithDuplicateAttempt = stateWithHistory
+          .addCurrentColorToHistory();
 
       expect(stateWithDuplicateAttempt.colorHistory.length, equals(1));
     });

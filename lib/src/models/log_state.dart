@@ -44,8 +44,12 @@ abstract class LogState with _$LogState {
 
   /// Adds a new log entry representing an error that occurred. Takes the
   /// error [e] and the optional StackTrace [st].
-  LogState logError(Object e, {StackTrace? st}) =>
-      copyWith(logEntries: [...logEntries, LogEntry.error(e, st: st)]);
+  LogState logError(Object e, {StackTrace? st}) => copyWith(
+    logEntries: [
+      ...logEntries,
+      LogEntry.error(e, st: st),
+    ],
+  );
 
   /// Adds a new log entry representing a [warning] message.
   LogState logWarning(String warning) =>
