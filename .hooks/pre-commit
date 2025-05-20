@@ -1,0 +1,4 @@
+#!/bin/sh
+# Run build_runner and stage any changes
+dart run build_runner build --delete-conflicting-outputs
+git add .

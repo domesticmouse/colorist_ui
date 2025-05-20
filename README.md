@@ -164,3 +164,40 @@ example/
   formatting
 - Ensure code generation is run after modifying `freezed` models and `riverpod`
   providers
+
+## Automated Code Generation (Pre-commit Hook)
+
+To ensure that generated code is always up-to-date before committing, this project includes a pre-commit hook that automatically runs `dart run build_runner build --delete-conflicting-outputs` and stages any changes.
+
+### Enabling the Pre-commit Hook
+
+You can enable the hook using one of the following methods:
+
+**Method 1: Configure Git's hooksPath (Recommended)**
+
+Run the following command in your terminal at the root of the repository:
+
+```bash
+git config core.hooksPath .hooks
+```
+This tells Git to use the `.hooks` directory for all hooks in this repository.
+
+**Method 2: Manually Link or Copy the Hook**
+
+If you prefer not to change `core.hooksPath`, you can manually create a symbolic link or copy the script into your local `.git/hooks` directory.
+
+First, ensure the `.git/hooks` directory exists. If not, create it:
+```bash
+mkdir -p .git/hooks
+```
+
+Then, either create a symbolic link:
+```bash
+ln -s ../../.hooks/pre-commit .git/hooks/pre-commit
+```
+
+Or, copy the hook script:
+```bash
+cp .hooks/pre-commit .git/hooks/pre-commit
+```
+If you copy the script, make sure it remains executable. The `.hooks/pre-commit` script in the repository already has execute permissions.
