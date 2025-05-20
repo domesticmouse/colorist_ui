@@ -1,0 +1,8 @@
+#!/bin/sh
+# Run build_runner and stage any changes
+dart run build_runner build --delete-conflicting-outputs
+if [ $? -ne 0 ]; then  
+  echo "build_runner failed. Aborting commit."  
+  exit 1  
+fi  
+git add .
