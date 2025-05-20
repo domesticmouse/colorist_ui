@@ -18,10 +18,9 @@ final chatStateNotifierProvider =
     AutoDisposeNotifierProvider<ChatStateNotifier, ChatState>.internal(
       ChatStateNotifier.new,
       name: r'chatStateNotifierProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$chatStateNotifierHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$chatStateNotifierHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

@@ -19,10 +19,9 @@ final colorStateNotifierProvider =
     AutoDisposeNotifierProvider<ColorStateNotifier, ColorState>.internal(
       ColorStateNotifier.new,
       name: r'colorStateNotifierProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$colorStateNotifierHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$colorStateNotifierHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

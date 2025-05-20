@@ -19,10 +19,9 @@ final logStateNotifierProvider =
     AutoDisposeNotifierProvider<LogStateNotifier, LogState>.internal(
       LogStateNotifier.new,
       name: r'logStateNotifierProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$logStateNotifierHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$logStateNotifierHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
