@@ -17,14 +17,15 @@ String _$colorStateNotifierHash() =>
 @ProviderFor(ColorStateNotifier)
 final colorStateNotifierProvider =
     AutoDisposeNotifierProvider<ColorStateNotifier, ColorState>.internal(
-  ColorStateNotifier.new,
-  name: r'colorStateNotifierProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$colorStateNotifierHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      ColorStateNotifier.new,
+      name: r'colorStateNotifierProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$colorStateNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$ColorStateNotifier = AutoDisposeNotifier<ColorState>;
 // ignore_for_file: type=lint

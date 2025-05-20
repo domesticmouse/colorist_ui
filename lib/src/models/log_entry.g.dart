@@ -7,20 +7,20 @@ part of 'log_entry.dart';
 // **************************************************************************
 
 _LogEntry _$LogEntryFromJson(Map<String, dynamic> json) => _LogEntry(
-      id: json['id'] as String,
-      content: json['content'] as String,
-      author: $enumDecode(_$LogEntryRoleEnumMap, json['author']),
-      type: $enumDecode(_$LogEntryTypeEnumMap, json['type']),
-      timestamp: DateTime.parse(json['timestamp'] as String),
-    );
+  id: json['id'] as String,
+  content: json['content'] as String,
+  author: $enumDecode(_$LogEntryRoleEnumMap, json['author']),
+  type: $enumDecode(_$LogEntryTypeEnumMap, json['type']),
+  timestamp: DateTime.parse(json['timestamp'] as String),
+);
 
 Map<String, dynamic> _$LogEntryToJson(_LogEntry instance) => <String, dynamic>{
-      'id': instance.id,
-      'content': instance.content,
-      'author': _$LogEntryRoleEnumMap[instance.author]!,
-      'type': _$LogEntryTypeEnumMap[instance.type]!,
-      'timestamp': instance.timestamp.toIso8601String(),
-    };
+  'id': instance.id,
+  'content': instance.content,
+  'author': _$LogEntryRoleEnumMap[instance.author]!,
+  'type': _$LogEntryTypeEnumMap[instance.type]!,
+  'timestamp': instance.timestamp.toIso8601String(),
+};
 
 const _$LogEntryRoleEnumMap = {
   LogEntryRole.user: 'user',

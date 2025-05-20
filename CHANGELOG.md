@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.2.4
+
+* Update for Flutter 3.32
+
 ## 0.2.3
 
 * Migrate from `flutter_markdown` to `flutter_markdown_plus`

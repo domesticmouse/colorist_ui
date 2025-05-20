@@ -17,14 +17,15 @@ String _$logStateNotifierHash() => r'9f17e243a57f73934641b582be4190b4e9ffc7a3';
 @ProviderFor(LogStateNotifier)
 final logStateNotifierProvider =
     AutoDisposeNotifierProvider<LogStateNotifier, LogState>.internal(
-  LogStateNotifier.new,
-  name: r'logStateNotifierProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$logStateNotifierHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      LogStateNotifier.new,
+      name: r'logStateNotifierProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$logStateNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$LogStateNotifier = AutoDisposeNotifier<LogState>;
 // ignore_for_file: type=lint

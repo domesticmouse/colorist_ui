@@ -16,14 +16,15 @@ String _$chatStateNotifierHash() => r'77eca0bd3183f933482d16d21b5a49c915ca0d85';
 @ProviderFor(ChatStateNotifier)
 final chatStateNotifierProvider =
     AutoDisposeNotifierProvider<ChatStateNotifier, ChatState>.internal(
-  ChatStateNotifier.new,
-  name: r'chatStateNotifierProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$chatStateNotifierHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      ChatStateNotifier.new,
+      name: r'chatStateNotifierProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$chatStateNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$ChatStateNotifier = AutoDisposeNotifier<ChatState>;
 // ignore_for_file: type=lint

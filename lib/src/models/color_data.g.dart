@@ -7,10 +7,10 @@ part of 'color_data.dart';
 // **************************************************************************
 
 _ColorData _$ColorDataFromJson(Map<String, dynamic> json) => _ColorData(
-      red: (json['red'] as num).toDouble(),
-      green: (json['green'] as num).toDouble(),
-      blue: (json['blue'] as num).toDouble(),
-    );
+  red: (json['red'] as num).toDouble(),
+  green: (json['green'] as num).toDouble(),
+  blue: (json['blue'] as num).toDouble(),
+);
 
 Map<String, dynamic> _$ColorDataToJson(_ColorData instance) =>
     <String, dynamic>{
