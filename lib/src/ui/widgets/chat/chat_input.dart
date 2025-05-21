@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../../../models/conversation_state.dart';
 import '../../utils/utils.dart';
 
+/// A callback function for sending messages in a chat interface.
 typedef ChatInputSendMessage = void Function(String content);
 
 /// A text input field for sending messages in a chat interface.
@@ -17,7 +18,10 @@ class ChatInput extends StatefulWidget {
     required this.sendMessage,
   });
 
+  /// The current state of the conversation.
   final ConversationState conversationState;
+
+  /// A callback function for sending messages.
   final ChatInputSendMessage sendMessage;
 
   @override
