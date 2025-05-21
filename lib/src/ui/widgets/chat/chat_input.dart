@@ -18,7 +18,10 @@ class ChatInput extends StatefulWidget {
     required this.sendMessage,
   });
 
+  /// The current state of the conversation.
   final ConversationState conversationState;
+
+  /// A callback function for sending messages.
   final ChatInputSendMessage sendMessage;
 
   @override
