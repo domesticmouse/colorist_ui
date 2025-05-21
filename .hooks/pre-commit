@@ -1,9 +1,21 @@
 #!/bin/sh
-# Run build_runner and stage any changes
+# Stop if anything fails
+set -e
+
+# Generate the freezed and json_serializable code
 dart run build_runner build --delete-conflicting-outputs
-if [ $? -ne 0 ]; then
-  echo "build_runner failed. Aborting commit."
-  exit 1
-fi
-find lib -name \*.g.dart | xargs dart format
+
+# Format all Dart files
+dart format lib test
+
+# Fix issues
+dart fix --apply
+
+# Analyze everything
+dart analyze .
+
+# Run the tests
+flutter test
+
+# Stage all changes
 git add .
