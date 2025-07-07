@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.2.5
+
+* Update generated files
+
 ## 0.2.4
 
 * Update for Flutter 3.32
