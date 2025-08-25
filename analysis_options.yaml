@@ -1,9 +1,5 @@
 include: package:flutter_lints/flutter.yaml
 
-analyzer:
-  plugins:
-    - custom_lint
-
 linter:
   rules:
     avoid_types_on_closure_parameters: true
