@@ -37,7 +37,7 @@ class _MessagesListState extends ConsumerState<MessagesList> {
   @override
   Widget build(BuildContext context) {
     final messages = ref.watch(
-      chatStateNotifierProvider.select((state) => state.messages),
+      chatStateProvider.select((state) => state.messages),
     );
 
     if (messages.isEmpty) {

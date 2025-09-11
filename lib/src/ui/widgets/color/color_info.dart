@@ -14,7 +14,7 @@ class ColorInfo extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentColor = ref.watch(
-      colorStateNotifierProvider.select((state) => state.currentColor),
+      colorStateProvider.select((state) => state.currentColor),
     );
     final red = (currentColor.red * 255).round();
     final green = (currentColor.green * 255).round();

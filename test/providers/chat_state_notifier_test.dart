@@ -21,18 +21,18 @@ void main() {
     });
 
     test('initial state has white color and empty messages/logs', () {
-      final state = container.read(chatStateNotifierProvider);
+      final state = container.read(chatStateProvider);
 
       expect(state.messages, isEmpty);
     });
 
     group('Message Operations', () {
       test('addUserMessage adds message with correct role', () {
-        final notifier = container.read(chatStateNotifierProvider.notifier);
+        final notifier = container.read(chatStateProvider.notifier);
 
         final message = notifier.addUserMessage('Hello');
 
-        final state = container.read(chatStateNotifierProvider);
+        final state = container.read(chatStateProvider);
         expect(state.messages.length, equals(1));
         expect(state.messages.first.content, equals('Hello'));
         expect(state.messages.first.role, equals(MessageRole.user));
@@ -41,14 +41,14 @@ void main() {
       });
 
       test('addLlmMessage adds message with correct role', () {
-        final notifier = container.read(chatStateNotifierProvider.notifier);
+        final notifier = container.read(chatStateProvider.notifier);
 
         final message = notifier.addLlmMessage(
           'Hi there',
           MessageState.complete,
         );
 
-        final state = container.read(chatStateNotifierProvider);
+        final state = container.read(chatStateProvider);
         expect(state.messages.length, equals(1));
         expect(state.messages.first.content, equals('Hi there'));
         expect(state.messages.first.role, equals(MessageRole.llm));
@@ -57,23 +57,20 @@ void main() {
       });
 
       test('clearMessages removes all messages', () {
-        final notifier = container.read(chatStateNotifierProvider.notifier);
+        final notifier = container.read(chatStateProvider.notifier);
 
         notifier.addUserMessage('Hello');
         notifier.addLlmMessage('Hi there', MessageState.complete);
-        expect(
-          container.read(chatStateNotifierProvider).messages.length,
-          equals(2),
-        );
+        expect(container.read(chatStateProvider).messages.length, equals(2));
 
         notifier.reset();
 
-        final state = container.read(chatStateNotifierProvider);
+        final state = container.read(chatStateProvider);
         expect(state.messages, isEmpty);
       });
 
       test('appendToMessage appends content to existing message', () {
-        final notifier = container.read(chatStateNotifierProvider.notifier);
+        final notifier = container.read(chatStateProvider.notifier);
 
         final message = notifier.addLlmMessage(
           'Initial',
@@ -81,29 +78,29 @@ void main() {
         );
         notifier.appendToMessage(message.id, ' Update');
 
-        final state = container.read(chatStateNotifierProvider);
+        final state = container.read(chatStateProvider);
         expect(state.messages.length, equals(1));
         expect(state.messages.first.content, equals('Initial Update'));
       });
 
       test('appendToMessage does nothing for non-existent message id', () {
-        final notifier = container.read(chatStateNotifierProvider.notifier);
+        final notifier = container.read(chatStateProvider.notifier);
 
         notifier.addLlmMessage('Initial', MessageState.complete);
         notifier.appendToMessage('non-existent-id', ' Update');
 
-        final state = container.read(chatStateNotifierProvider);
+        final state = container.read(chatStateProvider);
         expect(state.messages.first.content, equals('Initial'));
       });
 
       test('multiple messages maintain order', () {
-        final notifier = container.read(chatStateNotifierProvider.notifier);
+        final notifier = container.read(chatStateProvider.notifier);
 
         notifier.addUserMessage('First');
         notifier.addLlmMessage('Second', MessageState.complete);
         notifier.addUserMessage('Third');
 
-        final state = container.read(chatStateNotifierProvider);
+        final state = container.read(chatStateProvider);
         expect(state.messages.length, equals(3));
         expect(state.messages[0].content, equals('First'));
         expect(state.messages[1].content, equals('Second'));
@@ -112,12 +109,12 @@ void main() {
     });
 
     test('state updates are immutable', () {
-      final notifier = container.read(chatStateNotifierProvider.notifier);
-      final initialState = container.read(chatStateNotifierProvider);
+      final notifier = container.read(chatStateProvider.notifier);
+      final initialState = container.read(chatStateProvider);
 
       notifier.addUserMessage('Hello from UserLand!');
 
-      final updatedState = container.read(chatStateNotifierProvider);
+      final updatedState = container.read(chatStateProvider);
       expect(initialState, isNot(same(updatedState)));
       expect(initialState.messages, isNot(same(updatedState.messages)));
     });
@@ -125,7 +122,7 @@ void main() {
 
   test('setMessageState delegates to state method correctly', () {
     final container = ProviderContainer();
-    final notifier = container.read(chatStateNotifierProvider.notifier);
+    final notifier = container.read(chatStateProvider.notifier);
 
     // Add a message in streaming state
     final streamingMessage = notifier.addLlmMessage(
@@ -135,7 +132,7 @@ void main() {
 
     // Initial state has message in streaming state
     expect(
-      container.read(chatStateNotifierProvider).messages.first.state,
+      container.read(chatStateProvider).messages.first.state,
       equals(MessageState.streaming),
     );
 
@@ -144,7 +141,7 @@ void main() {
 
     // Check that the state was updated correctly
     expect(
-      container.read(chatStateNotifierProvider).messages.first.state,
+      container.read(chatStateProvider).messages.first.state,
       equals(MessageState.complete),
     );
 

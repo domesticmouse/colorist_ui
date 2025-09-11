@@ -14,7 +14,7 @@ class ColorDisplay extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final colorData = ref.watch(
-      colorStateNotifierProvider.select((state) => state.currentColor),
+      colorStateProvider.select((state) => state.currentColor),
     );
 
     return Container(

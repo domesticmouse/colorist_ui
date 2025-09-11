@@ -23,13 +23,13 @@ void main() {
     });
 
     test('initial state has white color and empty messages/logs', () {
-      final state = container.read(logStateNotifierProvider);
+      final state = container.read(logStateProvider);
 
       expect(state.logEntries, isEmpty);
     });
 
     test('reset state empties logs', () {
-      final notifier = container.read(logStateNotifierProvider.notifier);
+      final notifier = container.read(logStateProvider.notifier);
 
       notifier.logUserText('User input');
       notifier.logLlmText('LLM response');
@@ -37,22 +37,22 @@ void main() {
       notifier.logWarning('Warning message');
       notifier.logInfo('Info message');
 
-      final state = container.read(logStateNotifierProvider);
+      final state = container.read(logStateProvider);
       expect(state.logEntries.length, equals(5));
 
       notifier.reset();
 
-      final resetState = container.read(logStateNotifierProvider);
+      final resetState = container.read(logStateProvider);
       expect(resetState.logEntries.length, equals(0));
     });
 
     group('Logging Operations', () {
       test('logUserText adds user text entry', () {
-        final notifier = container.read(logStateNotifierProvider.notifier);
+        final notifier = container.read(logStateProvider.notifier);
 
         notifier.logUserText('User input');
 
-        final state = container.read(logStateNotifierProvider);
+        final state = container.read(logStateProvider);
         expect(state.logEntries.length, equals(1));
         expect(state.logEntries.first.content, equals('User input'));
         expect(state.logEntries.first.author, equals(LogEntryRole.user));
@@ -60,11 +60,11 @@ void main() {
       });
 
       test('logLlmText adds LLM text entry', () {
-        final notifier = container.read(logStateNotifierProvider.notifier);
+        final notifier = container.read(logStateProvider.notifier);
 
         notifier.logLlmText('LLM response');
 
-        final state = container.read(logStateNotifierProvider);
+        final state = container.read(logStateProvider);
         expect(state.logEntries.length, equals(1));
         expect(state.logEntries.first.content, equals('LLM response'));
         expect(state.logEntries.first.author, equals(LogEntryRole.llm));
@@ -72,12 +72,12 @@ void main() {
       });
 
       test('logError adds error entry', () {
-        final notifier = container.read(logStateNotifierProvider.notifier);
+        final notifier = container.read(logStateProvider.notifier);
         final exception = Exception('Test error');
 
         notifier.logError(exception);
 
-        final state = container.read(logStateNotifierProvider);
+        final state = container.read(logStateProvider);
         expect(state.logEntries.length, equals(1));
         expect(state.logEntries.first.content, equals('Exception: Test error'));
         expect(state.logEntries.first.author, equals(LogEntryRole.app));
@@ -85,11 +85,11 @@ void main() {
       });
 
       test('logWarning adds warning entry', () {
-        final notifier = container.read(logStateNotifierProvider.notifier);
+        final notifier = container.read(logStateProvider.notifier);
 
         notifier.logWarning('Warning message');
 
-        final state = container.read(logStateNotifierProvider);
+        final state = container.read(logStateProvider);
         expect(state.logEntries.length, equals(1));
         expect(state.logEntries.first.content, equals('Warning message'));
         expect(state.logEntries.first.author, equals(LogEntryRole.app));
@@ -97,11 +97,11 @@ void main() {
       });
 
       test('logInfo adds info entry', () {
-        final notifier = container.read(logStateNotifierProvider.notifier);
+        final notifier = container.read(logStateProvider.notifier);
 
         notifier.logInfo('Info message');
 
-        final state = container.read(logStateNotifierProvider);
+        final state = container.read(logStateProvider);
         expect(state.logEntries.length, equals(1));
         expect(state.logEntries.first.content, equals('Info message'));
         expect(state.logEntries.first.author, equals(LogEntryRole.app));
@@ -109,13 +109,13 @@ void main() {
       });
 
       test('logFunctionCall adds a function call log entry', () {
-        final notifier = container.read(logStateNotifierProvider.notifier);
+        final notifier = container.read(logStateProvider.notifier);
         final functionName = 'set_color';
         final args = {'red': 0.5, 'green': 0.3, 'blue': 0.7};
 
         notifier.logFunctionCall(functionName, args);
 
-        final state = container.read(logStateNotifierProvider);
+        final state = container.read(logStateProvider);
         expect(state.logEntries.length, equals(1));
         expect(state.logEntries.first.content, contains(functionName));
         expect(state.logEntries.first.content, contains(json.encode(args)));
@@ -124,12 +124,12 @@ void main() {
       });
 
       test('logFunctionResults adds a function results log entry', () {
-        final notifier = container.read(logStateNotifierProvider.notifier);
+        final notifier = container.read(logStateProvider.notifier);
         final results = {'success': true, 'color': '#336699'};
 
         notifier.logFunctionResults(results);
 
-        final state = container.read(logStateNotifierProvider);
+        final state = container.read(logStateProvider);
         expect(state.logEntries.length, equals(1));
         expect(state.logEntries.first.content, contains('Result:'));
         expect(state.logEntries.first.content, contains(json.encode(results)));
@@ -138,13 +138,13 @@ void main() {
       });
 
       test('multiple log entries maintain chronological order', () {
-        final notifier = container.read(logStateNotifierProvider.notifier);
+        final notifier = container.read(logStateProvider.notifier);
 
         notifier.logUserText('First');
         notifier.logLlmText('Second');
         notifier.logInfo('Third');
 
-        final state = container.read(logStateNotifierProvider);
+        final state = container.read(logStateProvider);
         expect(state.logEntries.length, equals(3));
         expect(state.logEntries[0].content, equals('First'));
         expect(state.logEntries[1].content, equals('Second'));
@@ -153,12 +153,12 @@ void main() {
     });
 
     test('state updates are immutable', () {
-      final notifier = container.read(logStateNotifierProvider.notifier);
-      final initialState = container.read(logStateNotifierProvider);
+      final notifier = container.read(logStateProvider.notifier);
+      final initialState = container.read(logStateProvider);
 
       notifier.logLlmText('LLM Generated Message Goes Here.');
 
-      final updatedState = container.read(logStateNotifierProvider);
+      final updatedState = container.read(logStateProvider);
       expect(initialState, isNot(same(updatedState)));
       expect(initialState.logEntries, isNot(same(updatedState.logEntries)));
     });

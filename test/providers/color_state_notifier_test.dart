@@ -20,7 +20,7 @@ void main() {
     });
 
     test('initial state has white color and empty messages/logs', () {
-      final state = container.read(colorStateNotifierProvider);
+      final state = container.read(colorStateProvider);
 
       expect(state.currentColor.red, equals(1.0));
       expect(state.currentColor.green, equals(1.0));
@@ -30,8 +30,8 @@ void main() {
 
     group('Color Operations', () {
       test('addCurrentColorToHistory adds current color to history', () {
-        final notifier = container.read(colorStateNotifierProvider.notifier);
-        final initialState = container.read(colorStateNotifierProvider);
+        final notifier = container.read(colorStateProvider.notifier);
+        final initialState = container.read(colorStateProvider);
 
         // Initial state is color is white, color history is empty.
         expect(initialState.currentColor.red, equals(1.0));
@@ -43,7 +43,7 @@ void main() {
         notifier.updateColor(red: 1.0, green: 0.0, blue: 0.0);
 
         // Updated state is current color is red, history is just white
-        final updatedState = container.read(colorStateNotifierProvider);
+        final updatedState = container.read(colorStateProvider);
         expect(updatedState.currentColor.red, equals(1.0));
         expect(updatedState.currentColor.green, equals(0.0));
         expect(updatedState.currentColor.blue, equals(0.0));
@@ -56,7 +56,7 @@ void main() {
         notifier.reset();
 
         // Expect current color is white, history is empty
-        final finalState = container.read(colorStateNotifierProvider);
+        final finalState = container.read(colorStateProvider);
         expect(finalState.currentColor.red, equals(1.0));
         expect(finalState.currentColor.green, equals(1.0));
         expect(finalState.currentColor.blue, equals(1.0));
@@ -64,7 +64,7 @@ void main() {
       });
 
       test('addCurrentColorToHistory prevents duplicate entries', () {
-        final notifier = container.read(colorStateNotifierProvider.notifier);
+        final notifier = container.read(colorStateProvider.notifier);
 
         // Change current color
         notifier.updateColor(red: 0.8, green: 0.2, blue: 0.3);
@@ -75,7 +75,7 @@ void main() {
         // And again
         notifier.updateColor(red: 0.8, green: 0.2, blue: 0.3);
 
-        final state = container.read(colorStateNotifierProvider);
+        final state = container.read(colorStateProvider);
         // History should be two colors, white, and whatever (0.8, 0.2, 0.3) is.
         expect(state.colorHistory.length, equals(2));
         expect(state.colorHistory.first.red, equals(0.8));
@@ -87,7 +87,7 @@ void main() {
       });
 
       test('selectColorFromHistory updates current color', () {
-        final notifier = container.read(colorStateNotifierProvider.notifier);
+        final notifier = container.read(colorStateProvider.notifier);
 
         // Add a red color to history
         notifier.updateColor(red: 1.0, green: 0.0, blue: 0.0);
@@ -101,14 +101,14 @@ void main() {
         // Select red color from history (index 1)
         notifier.selectColorFromHistory(1);
 
-        final state = container.read(colorStateNotifierProvider);
+        final state = container.read(colorStateProvider);
         expect(state.currentColor.red, equals(1.0));
         expect(state.currentColor.green, equals(0.0));
         expect(state.currentColor.blue, equals(0.0));
       });
 
       test('selectColorFromHistory does nothing with invalid index', () {
-        final notifier = container.read(colorStateNotifierProvider.notifier);
+        final notifier = container.read(colorStateProvider.notifier);
 
         // Add a color to history
         notifier.updateColor(red: 1.0, green: 0.0, blue: 0.0);
@@ -119,7 +119,7 @@ void main() {
         // Try to select with invalid index
         notifier.selectColorFromHistory(99);
 
-        final state = container.read(colorStateNotifierProvider);
+        final state = container.read(colorStateProvider);
         // Current color should remain unchanged
         expect(state.currentColor.red, equals(0.0));
         expect(state.currentColor.green, equals(0.0));
@@ -129,10 +129,10 @@ void main() {
       test(
         'updateColor updates current color and adds old color to history',
         () {
-          final notifier = container.read(colorStateNotifierProvider.notifier);
+          final notifier = container.read(colorStateProvider.notifier);
 
           // Capture initial color (white)
-          final initialState = container.read(colorStateNotifierProvider);
+          final initialState = container.read(colorStateProvider);
           final initialColor = initialState.currentColor;
 
           // Create a new color and set it
@@ -144,7 +144,7 @@ void main() {
             blue: newColor.blue,
           );
 
-          final state = container.read(colorStateNotifierProvider);
+          final state = container.read(colorStateProvider);
 
           // Current color should be updated to new color
           expect(state.currentColor, equals(newColor));
@@ -156,7 +156,7 @@ void main() {
       );
 
       test('updateColor maintains history limit of 10 colors', () {
-        final notifier = container.read(colorStateNotifierProvider.notifier);
+        final notifier = container.read(colorStateProvider.notifier);
 
         // Add 10 different colors using updateColor
         for (int i = 0; i < 11; i++) {
@@ -178,7 +178,7 @@ void main() {
           blue: customColor.blue,
         );
 
-        final state = container.read(colorStateNotifierProvider);
+        final state = container.read(colorStateProvider);
 
         // Should have 10 colors in history
         expect(state.colorHistory.length, equals(10));
@@ -196,12 +196,12 @@ void main() {
     });
 
     test('state updates are immutable', () {
-      final notifier = container.read(colorStateNotifierProvider.notifier);
-      final initialState = container.read(colorStateNotifierProvider);
+      final notifier = container.read(colorStateProvider.notifier);
+      final initialState = container.read(colorStateProvider);
 
       notifier.updateColor(red: 0.5, green: 0.5, blue: 0.5);
 
-      final updatedState = container.read(colorStateNotifierProvider);
+      final updatedState = container.read(colorStateProvider);
       expect(initialState, isNot(same(updatedState)));
       expect(initialState.currentColor, isNot(same(updatedState.currentColor)));
     });
