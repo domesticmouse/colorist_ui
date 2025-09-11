@@ -33,7 +33,7 @@ class _LogViewState extends ConsumerState<LogView> {
   @override
   Widget build(BuildContext context) {
     final logEntries = ref.watch(
-      logStateNotifierProvider.select((state) => state.logEntries),
+      logStateProvider.select((state) => state.logEntries),
     );
 
     if (logEntries.isEmpty) {

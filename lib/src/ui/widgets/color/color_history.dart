@@ -25,7 +25,7 @@ class ColorHistory extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final colorHistory = ref.watch(
-      colorStateNotifierProvider.select((state) => state.colorHistory),
+      colorStateProvider.select((state) => state.colorHistory),
     );
 
     final thumbnailSize = switch (Device.of(context)) {
@@ -59,7 +59,7 @@ class ColorHistory extends ConsumerWidget {
                 GestureDetector(
                   onTap: () {
                     ref
-                        .read(colorStateNotifierProvider.notifier)
+                        .read(colorStateProvider.notifier)
                         .selectColorFromHistory(index);
 
                     // Notify the LLM about the manual selection.

@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.3.0
+
+* Update for Riverpod 3
+
 ## 0.2.5
 
 * Update generated files
