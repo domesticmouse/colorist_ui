@@ -13,7 +13,7 @@ part of 'chat_state_notifier.dart';
 /// appending to existing messages, and finalizing messages.
 
 @ProviderFor(ChatStateNotifier)
-const chatStateProvider = ChatStateNotifierProvider._();
+final chatStateProvider = ChatStateNotifierProvider._();
 
 /// A Riverpod provider that manages the state of a chat conversation.
 /// This notifier allows adding user and LLM messages, clearing the chat,
@@ -23,7 +23,7 @@ final class ChatStateNotifierProvider
   /// A Riverpod provider that manages the state of a chat conversation.
   /// This notifier allows adding user and LLM messages, clearing the chat,
   /// appending to existing messages, and finalizing messages.
-  const ChatStateNotifierProvider._()
+  ChatStateNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -61,7 +61,6 @@ abstract class _$ChatStateNotifier extends $Notifier<ChatState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<ChatState, ChatState>;
     final element =
         ref.element
@@ -71,6 +70,6 @@ abstract class _$ChatStateNotifier extends $Notifier<ChatState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

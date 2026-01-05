@@ -14,7 +14,7 @@ part of 'log_state_notifier.dart';
 /// messages.  It uses the `LogState` model to maintain the log entries.
 
 @ProviderFor(LogStateNotifier)
-const logStateProvider = LogStateNotifierProvider._();
+final logStateProvider = LogStateNotifierProvider._();
 
 /// A Riverpod provider that manages the application's log state.  This notifier
 /// provides methods to add various types of log entries, such as user input,
@@ -26,7 +26,7 @@ final class LogStateNotifierProvider
   /// provides methods to add various types of log entries, such as user input,
   /// LLM output, function calls, results, errors, warnings, and informational
   /// messages.  It uses the `LogState` model to maintain the log entries.
-  const LogStateNotifierProvider._()
+  LogStateNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -65,7 +65,6 @@ abstract class _$LogStateNotifier extends $Notifier<LogState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<LogState, LogState>;
     final element =
         ref.element
@@ -75,6 +74,6 @@ abstract class _$LogStateNotifier extends $Notifier<LogState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

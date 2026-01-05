@@ -13,7 +13,7 @@ part of 'color_state_notifier.dart';
 /// the current color.
 
 @ProviderFor(ColorStateNotifier)
-const colorStateProvider = ColorStateNotifierProvider._();
+final colorStateProvider = ColorStateNotifierProvider._();
 
 /// A Riverpod provider that manages the state of the color picker.
 /// This notifier allows selecting colors from the history and updating
@@ -23,7 +23,7 @@ final class ColorStateNotifierProvider
   /// A Riverpod provider that manages the state of the color picker.
   /// This notifier allows selecting colors from the history and updating
   /// the current color.
-  const ColorStateNotifierProvider._()
+  ColorStateNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -62,7 +62,6 @@ abstract class _$ColorStateNotifier extends $Notifier<ColorState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<ColorState, ColorState>;
     final element =
         ref.element
@@ -72,6 +71,6 @@ abstract class _$ColorStateNotifier extends $Notifier<ColorState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
