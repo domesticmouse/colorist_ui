@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.4.0
+
+* Update for Riverpod 4
+
 ## 0.3.0
 
 * Update for Riverpod 3
