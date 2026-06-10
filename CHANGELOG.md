@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.5.0
+
+* Bump version for Flutter 3.12.0.
+
 ## 0.4.0
 
 * Update for Riverpod 4
