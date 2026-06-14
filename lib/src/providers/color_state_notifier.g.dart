@@ -61,7 +61,7 @@ abstract class _$ColorStateNotifier extends $Notifier<ColorState> {
   ColorState build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<ColorState, ColorState>;
     final element =
         ref.element
@@ -71,6 +71,6 @@ abstract class _$ColorStateNotifier extends $Notifier<ColorState> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

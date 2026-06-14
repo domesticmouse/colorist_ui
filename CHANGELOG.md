@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.5.1
+
+* Update deps, rebuild generated code
+
 ## 0.5.0
 
 * Bump version for Flutter 3.12.0.

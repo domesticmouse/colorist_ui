@@ -60,7 +60,7 @@ abstract class _$ChatStateNotifier extends $Notifier<ChatState> {
   ChatState build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<ChatState, ChatState>;
     final element =
         ref.element
@@ -70,6 +70,6 @@ abstract class _$ChatStateNotifier extends $Notifier<ChatState> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }
