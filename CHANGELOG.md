@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.6.0
+
+* Update deps, rebuild generated code
+
 ## 0.5.1
 
 * Update deps, rebuild generated code
