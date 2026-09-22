@@ -29,16 +29,21 @@ $LogStateCopyWith<LogState> get copyWith => _$LogStateCopyWithImpl<LogState>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogState&&const DeepCollectionEquality().equals(other.logEntries, logEntries));
+  final _this = this as LogState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogState&&const DeepCollectionEquality().equals(other.logEntries, _this.logEntries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(logEntries));
+int get hashCode {
+  final _this = this as LogState;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.logEntries));
+}
 
 @override
 String toString() {
-  return 'LogState(logEntries: $logEntries)';
+  final _this = this as LogState;
+  return 'LogState(logEntries: ${_this.logEntries})';
 }
 
 
@@ -234,16 +239,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogState&&const DeepCollectionEquality().equals(other._logEntries, _logEntries));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogState&&const DeepCollectionEquality().equals(other.logEntries, _logEntries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_logEntries));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_logEntries));
+}
 
 @override
 String toString() {
-  return 'LogState(logEntries: $logEntries)';
+    return 'LogState(logEntries: $logEntries)';
 }
 
 

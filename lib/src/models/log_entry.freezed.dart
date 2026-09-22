@@ -29,16 +29,21 @@ $LogEntryCopyWith<LogEntry> get copyWith => _$LogEntryCopyWithImpl<LogEntry>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.author, author) || other.author == author)&&(identical(other.type, type) || other.type == type)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp));
+  final _this = this as LogEntry;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogEntry&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.content, _this.content) || other.content == _this.content)&&(identical(other.author, _this.author) || other.author == _this.author)&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.timestamp, _this.timestamp) || other.timestamp == _this.timestamp));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,content,author,type,timestamp);
+int get hashCode {
+  final _this = this as LogEntry;
+  return Object.hash(runtimeType,_this.id,_this.content,_this.author,_this.type,_this.timestamp);
+}
 
 @override
 String toString() {
-  return 'LogEntry(id: $id, content: $content, author: $author, type: $type, timestamp: $timestamp)';
+  final _this = this as LogEntry;
+  return 'LogEntry(id: ${_this.id}, content: ${_this.content}, author: ${_this.author}, type: ${_this.type}, timestamp: ${_this.timestamp})';
 }
 
 
@@ -236,16 +241,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.author, author) || other.author == author)&&(identical(other.type, type) || other.type == type)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.author, author) || other.author == author)&&(identical(other.type, type) || other.type == type)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,content,author,type,timestamp);
+int get hashCode {
+    return Object.hash(runtimeType,id,content,author,type,timestamp);
+}
 
 @override
 String toString() {
-  return 'LogEntry(id: $id, content: $content, author: $author, type: $type, timestamp: $timestamp)';
+    return 'LogEntry(id: $id, content: $content, author: $author, type: $type, timestamp: $timestamp)';
 }
 
 

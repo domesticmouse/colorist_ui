@@ -29,16 +29,21 @@ $MessageCopyWith<Message> get copyWith => _$MessageCopyWithImpl<Message>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Message&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.role, role) || other.role == role)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.state, state) || other.state == state));
+  final _this = this as Message;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Message&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.content, _this.content) || other.content == _this.content)&&(identical(other.role, _this.role) || other.role == _this.role)&&(identical(other.updatedAt, _this.updatedAt) || other.updatedAt == _this.updatedAt)&&(identical(other.state, _this.state) || other.state == _this.state));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,content,role,updatedAt,state);
+int get hashCode {
+  final _this = this as Message;
+  return Object.hash(runtimeType,_this.id,_this.content,_this.role,_this.updatedAt,_this.state);
+}
 
 @override
 String toString() {
-  return 'Message(id: $id, content: $content, role: $role, updatedAt: $updatedAt, state: $state)';
+  final _this = this as Message;
+  return 'Message(id: ${_this.id}, content: ${_this.content}, role: ${_this.role}, updatedAt: ${_this.updatedAt}, state: ${_this.state})';
 }
 
 
@@ -236,16 +241,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Message&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.role, role) || other.role == role)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.state, state) || other.state == state));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Message&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.role, role) || other.role == role)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.state, state) || other.state == state));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,content,role,updatedAt,state);
+int get hashCode {
+    return Object.hash(runtimeType,id,content,role,updatedAt,state);
+}
 
 @override
 String toString() {
-  return 'Message(id: $id, content: $content, role: $role, updatedAt: $updatedAt, state: $state)';
+    return 'Message(id: $id, content: $content, role: $role, updatedAt: $updatedAt, state: $state)';
 }
 
 

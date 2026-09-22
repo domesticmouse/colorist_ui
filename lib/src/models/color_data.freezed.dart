@@ -29,16 +29,21 @@ $ColorDataCopyWith<ColorData> get copyWith => _$ColorDataCopyWithImpl<ColorData>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ColorData&&(identical(other.red, red) || other.red == red)&&(identical(other.green, green) || other.green == green)&&(identical(other.blue, blue) || other.blue == blue));
+  final _this = this as ColorData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ColorData&&(identical(other.red, _this.red) || other.red == _this.red)&&(identical(other.green, _this.green) || other.green == _this.green)&&(identical(other.blue, _this.blue) || other.blue == _this.blue));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,red,green,blue);
+int get hashCode {
+  final _this = this as ColorData;
+  return Object.hash(runtimeType,_this.red,_this.green,_this.blue);
+}
 
 @override
 String toString() {
-  return 'ColorData(red: $red, green: $green, blue: $blue)';
+  final _this = this as ColorData;
+  return 'ColorData(red: ${_this.red}, green: ${_this.green}, blue: ${_this.blue})';
 }
 
 
@@ -232,16 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ColorData&&(identical(other.red, red) || other.red == red)&&(identical(other.green, green) || other.green == green)&&(identical(other.blue, blue) || other.blue == blue));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ColorData&&(identical(other.red, red) || other.red == red)&&(identical(other.green, green) || other.green == green)&&(identical(other.blue, blue) || other.blue == blue));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,red,green,blue);
+int get hashCode {
+    return Object.hash(runtimeType,red,green,blue);
+}
 
 @override
 String toString() {
-  return 'ColorData(red: $red, green: $green, blue: $blue)';
+    return 'ColorData(red: $red, green: $green, blue: $blue)';
 }
 
 

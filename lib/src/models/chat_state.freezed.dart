@@ -29,16 +29,21 @@ $ChatStateCopyWith<ChatState> get copyWith => _$ChatStateCopyWithImpl<ChatState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChatState&&const DeepCollectionEquality().equals(other.messages, messages));
+  final _this = this as ChatState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChatState&&const DeepCollectionEquality().equals(other.messages, _this.messages));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(messages));
+int get hashCode {
+  final _this = this as ChatState;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.messages));
+}
 
 @override
 String toString() {
-  return 'ChatState(messages: $messages)';
+  final _this = this as ChatState;
+  return 'ChatState(messages: ${_this.messages})';
 }
 
 
@@ -234,16 +239,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChatState&&const DeepCollectionEquality().equals(other._messages, _messages));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChatState&&const DeepCollectionEquality().equals(other.messages, _messages));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_messages));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_messages));
+}
 
 @override
 String toString() {
-  return 'ChatState(messages: $messages)';
+    return 'ChatState(messages: $messages)';
 }
 
 
