@@ -54,6 +54,10 @@ void main() {
 
         expect(updatedState.messages.length, equals(1));
         expect(updatedState.messages.first.content, equals('Hello, World!'));
+        expect(
+          updatedState.messages.first.updatedAt.millisecondsSinceEpoch,
+          greaterThanOrEqualTo(message.updatedAt.millisecondsSinceEpoch),
+        );
       });
 
       test(

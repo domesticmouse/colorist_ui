@@ -1,6 +1,6 @@
 name: colorist_ui
 description: "A Flutter library of UI components for an LLM codelab."
-version: 0.7.0
+version: 0.8.0
 repository: https://github.com/domesticmouse/colorist_ui
 
 environment:
@@ -28,6 +28,3 @@ dev_dependencies:
   json_serializable: ^6.14.0
   mocktail: ^1.0.5
   riverpod_generator: ^4.0.4
-
-flutter:
-  uses-material-design: true

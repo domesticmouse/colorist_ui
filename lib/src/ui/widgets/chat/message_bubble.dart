@@ -23,53 +23,60 @@ class MessageBubble extends StatelessWidget {
     final isStreaming = message.state == MessageState.streaming;
     final colorScheme = ColorScheme.of(context);
 
-    return Align(
-      alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 6),
-        padding: const EdgeInsets.all(12),
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.sizeOf(context).width * 0.7,
-        ),
-        decoration: BoxDecoration(
-          color: isUser
-              ? colorScheme.primary.withAlpha(25)
-              : colorScheme.surfaceContainerHighest,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: isUser
-                ? colorScheme.primary.withAlpha(50)
-                : colorScheme.outlineVariant,
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 8,
-          children: [
-            MarkdownBody(
-              data: message.content,
-              selectable: true,
-              styleSheet: MarkdownStyleSheet(p: const TextStyle(height: 1.4)),
-            ),
-            if (isStreaming)
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 8,
-                children: [
-                  const SizedBox(
-                    width: 12,
-                    height: 12,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  ),
-                  Text(
-                    'Thinking...',
-                    style: TextStyle(fontSize: 12, color: colorScheme.outline),
-                  ),
-                ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Align(
+          alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 6),
+            padding: const EdgeInsets.all(12),
+            constraints: BoxConstraints(maxWidth: constraints.maxWidth * 0.75),
+            decoration: BoxDecoration(
+              color: isUser
+                  ? colorScheme.primary.withAlpha(25)
+                  : colorScheme.surfaceContainerHighest,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: isUser
+                    ? colorScheme.primary.withAlpha(50)
+                    : colorScheme.outlineVariant,
               ),
-          ],
-        ),
-      ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 8,
+              children: [
+                MarkdownBody(
+                  data: message.content,
+                  selectable: true,
+                  styleSheet: MarkdownStyleSheet(
+                    p: const TextStyle(height: 1.4),
+                  ),
+                ),
+                if (isStreaming)
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    spacing: 8,
+                    children: [
+                      const SizedBox(
+                        width: 12,
+                        height: 12,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      ),
+                      Text(
+                        'Thinking...',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: colorScheme.outline,
+                        ),
+                      ),
+                    ],
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -41,9 +41,7 @@ abstract class ChatState with _$ChatState {
     }
     final before = messages.sublist(0, splitIndex);
     final message = messages[splitIndex];
-    final updatedMessage = message.copyWith(
-      content: message.content + addContent,
-    );
+    final updatedMessage = message.updateMessage(addContent, message.state);
     final after = messages.sublist(splitIndex + 1);
     return copyWith(messages: [...before, updatedMessage, ...after]);
   }
@@ -61,6 +59,7 @@ abstract class ChatState with _$ChatState {
     final updatedMessage = message.copyWith(
       state: MessageState.complete,
       content: message.content.trimRight(),
+      updatedAt: DateTime.now().toUtc(),
     );
     final after = messages.sublist(splitIndex + 1);
     return copyWith(messages: [...before, updatedMessage, ...after]);

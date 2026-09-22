@@ -64,8 +64,20 @@ abstract class ColorState with _$ColorState {
       return this;
     }
 
-    final withHistory = addCurrentColorToHistory();
-    return withHistory.copyWith(currentColor: colorHistory[index]);
+    final selectedColor = colorHistory[index];
+    final remainingHistory = List<ColorData>.from(colorHistory)
+      ..removeAt(index);
+    final newHistory = [
+      if (currentColor != selectedColor &&
+          !remainingHistory.contains(currentColor))
+        currentColor,
+      ...remainingHistory,
+    ];
+    final limitedHistory = newHistory.length > _maxColorHistory
+        ? newHistory.sublist(0, _maxColorHistory)
+        : newHistory;
+
+    return copyWith(currentColor: selectedColor, colorHistory: limitedHistory);
   }
 
   /// Updates the current color with new [red], [green], and [blue] values.

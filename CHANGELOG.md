@@ -1,5 +1,15 @@
 # Colorist UI Changelog
 
+## 0.8.0
+
+* Remove unneeded `uses-material-design` from `pubspec.yaml`.
+* Fix `MessageBubble` sizing on desktop using `LayoutBuilder` relative to parent pane.
+* Remove redundant bottom inset padding in `ChatInput` on mobile devices.
+* Ensure `updatedAt` is updated when appending to or finalizing messages in `ChatState`.
+* Avoid duplicate current color in `colorHistory` on selection in `ColorState`.
+* Correct `README.md` directory structure and add package maintenance and publishing workflow.
+* Add comprehensive widget tests across core UI widgets and screens.
+
 ## 0.7.0
 
 * Rebuild generated code

@@ -1,5 +1,7 @@
 # Colorist UI
 
+[![Pub Version](https://img.shields.io/pub/v/colorist_ui)](https://pub.dev/packages/colorist_ui)
+
 A Flutter UI library that enables exploring LLM tooling interfaces by allowing
 users to describe colors in natural language.
 
@@ -38,7 +40,6 @@ The application is designed to work across platforms:
 - **Framework**: Flutter/Dart
 - **State Management**: Riverpod with state held in various notifier providers
 - **Data Modeling**: freezed for immutable data classes with pattern matching
-- **Firebase Configuration**: FlutterFire CLI
 - **Responsive Design**: Adaptive layouts for cross-platform support
 
 ## User Interface
@@ -99,45 +100,51 @@ The application features platform-optimized layouts:
 
 ```console
 lib/
-├── main.dart
-├── models/
-│   ├── chat_state.dart         # State management for chat messages
-│   ├── color_data.dart         # Color representation with RGB values
-│   ├── color_state.dart        # Color state with history tracking
-│   ├── conversation_state.dart # Tracks if conversation is idle/busy
-│   ├── log_entry.dart          # Entries for the interaction log
-│   ├── log_state.dart          # State management for log entries
-│   └── message.dart            # Chat message with streaming state
-├── providers/
-│   ├── chat_state_notifier.dart    # Provider for chat state
-│   ├── color_state_notifier.dart   # Provider for color state
-│   ├── log_state_notifier.dart     # Provider for log state
-├── ui/
-│   ├── layout/
-│   │   ├── interaction_panel.dart  # Left panel with color and chat
-│   │   └── log_panel.dart          # Right panel with log entries
-│   ├── screens/
-│   │   ├── desktop_main_screen.dart # Desktop-specific layout
-│   │   ├── error_screen.dart        # Error handling screen
-│   │   ├── loading_screen.dart      # Loading indicator screen
-│   │   ├── main_screen.dart         # Main responsive screen
-│   │   └── mobile_main_screen.dart  # Mobile-specific layout
-│   ├── utils/
-│   │   ├── device_type.dart           # Device type detection
-│   │   └── scroll_controller_extension.dart # Scrolling utilities
-│   └── widgets/
-│       ├── chat/
-│       │   ├── chat_input.dart       # Text input component
-│       │   ├── message_bubble.dart   # Message display with state
-│       │   └── messages_list.dart    # Scrollable message list
-│       ├── color/
-│       │   ├── color_display.dart    # Color rectangle display
-│       │   ├── color_history.dart    # Thumbnail history strip
-│       │   └── color_info.dart       # RGB and hex information
-│       └── log/
-│           ├── log_entry_widget.dart # Individual log entry
-│           └── log_view.dart         # Scrollable log view
-└── utils/
+├── colorist_ui.dart            # Main library entry point
+└── src/
+    ├── models/
+    │   ├── chat_state.dart         # State management for chat messages
+    │   ├── color_data.dart         # Color representation with RGB values
+    │   ├── color_state.dart        # Color state with history tracking
+    │   ├── conversation_state.dart # Tracks if conversation is idle/busy
+    │   ├── log_entry.dart          # Entries for the interaction log
+    │   ├── log_state.dart          # State management for log entries
+    │   ├── message.dart            # Chat message with streaming state
+    │   └── models.dart             # Models barrel export
+    ├── providers/
+    │   ├── chat_state_notifier.dart    # Provider for chat state
+    │   ├── color_state_notifier.dart   # Provider for color state
+    │   ├── log_state_notifier.dart     # Provider for log state
+    │   └── providers.dart              # Providers barrel export
+    └── ui/
+        ├── layout/
+        │   ├── interaction_panel.dart  # Left panel with color and chat
+        │   ├── layouts.dart            # Layouts barrel export
+        │   └── log_panel.dart          # Right panel with log entries
+        ├── screens/
+        │   ├── error_screen.dart        # Error handling screen
+        │   ├── loading_screen.dart      # Loading indicator screen
+        │   ├── main_screen.dart         # Main responsive screen (_DesktopMainScreen, _MobileMainScreen)
+        │   └── screens.dart             # Screens barrel export
+        ├── utils/
+        │   ├── device_type.dart           # Device type detection
+        │   ├── scroll_controller_extension.dart # Scrolling utilities
+        │   └── utils.dart                 # Utils barrel export
+        └── widgets/
+            ├── chat/
+            │   ├── chat.dart             # Chat widgets barrel export
+            │   ├── chat_input.dart       # Text input component
+            │   ├── message_bubble.dart   # Message display with state
+            │   └── messages_list.dart    # Scrollable message list
+            ├── color/
+            │   ├── color.dart            # Color widgets barrel export
+            │   ├── color_display.dart    # Color rectangle display
+            │   ├── color_history.dart    # Thumbnail history strip
+            │   └── color_info.dart       # RGB and hex information
+            └── log/
+                ├── log.dart              # Log widgets barrel export
+                ├── log_entry_widget.dart # Individual log entry
+                └── log_view.dart         # Scrollable log view
 
 example/
 └── lib/
@@ -145,6 +152,14 @@ example/
 ```
 
 ## Development Commands
+
+For general build tasks, static analysis, formatting, and tests, you can use the `build.sh` script:
+
+```bash
+./build.sh
+```
+
+Alternatively, run individual commands as needed:
 
 - Format code: `dart format lib test`
 - Generate code: `dart run build_runner build --delete-conflicting-outputs`
@@ -160,10 +175,37 @@ example/
 - Run `flutter analyze` after every code change to catch issues early
 - Fix all analyzer warnings and errors before committing code
 - Run `flutter test` to ensure all tests pass after making changes
-- Run `dart format lib test` after tests pass to ensure consistent code
-  formatting
-- Ensure code generation is run after modifying `freezed` models and `riverpod`
-  providers
+- Run `dart format lib test` after tests pass to ensure consistent code formatting
+- Ensure code generation is run after modifying `freezed` models and `riverpod` providers
+
+## Package Maintenance & Publishing Workflow
+
+When preparing and publishing an update to [pub.dev](https://pub.dev/packages/colorist_ui):
+
+1. **Working Tree**: Ensure all work is committed and you are on a clean branch.
+2. **Build and Validate**:
+   Run `./build.sh` to execute code generation, code formatting, analyzer checks, and the full test suite with coverage:
+   ```bash
+   ./build.sh
+   ```
+3. **Verify API Docs**:
+   Ensure documentation generates without errors:
+   ```bash
+   dart doc --dry-run
+   ```
+4. **Update Version and Changelog**:
+   - Increment `version` in `pubspec.yaml` following [Semantic Versioning](https://semver.org/).
+   - Document new features, bug fixes, or breaking changes in `CHANGELOG.md` under the new version header.
+5. **Publish Dry Run**:
+   Validate package packaging and verify with the pub server:
+   ```bash
+   dart pub publish --dry-run
+   ```
+6. **Publish**:
+   Publish the release to pub.dev:
+   ```bash
+   dart pub publish
+   ```
 
 ## Automated Code Generation (Pre-commit Hook)
 

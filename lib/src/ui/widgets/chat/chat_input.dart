@@ -72,13 +72,7 @@ class _ChatInputState extends State<ChatInput> {
     final isProcessing = widget.conversationState == ConversationState.busy;
 
     return Container(
-      margin: EdgeInsets.only(
-        top: 8,
-        bottom: switch (Device.of(context)) {
-          DeviceType.phone => MediaQuery.paddingOf(context).bottom,
-          DeviceType.desktop => 0,
-        },
-      ),
+      margin: const EdgeInsets.only(top: 8),
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         color: colorScheme.surface,

@@ -149,6 +149,9 @@ void main() {
       expect(state.currentColor.red, equals(0.0));
       expect(state.currentColor.green, equals(1.0));
       expect(state.currentColor.blue, equals(0.0));
+
+      // Green should no longer be in history
+      expect(state.colorHistory.contains(state.currentColor), isFalse);
     });
 
     test('selectColorFromHistory does nothing for invalid index', () {
