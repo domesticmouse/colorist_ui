@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.8.1
+
+* Update deps
+
 ## 0.8.0
 
 * Remove unneeded `uses-material-design` from `pubspec.yaml`.
