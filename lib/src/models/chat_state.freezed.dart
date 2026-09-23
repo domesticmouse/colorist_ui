@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'chat_state.dart';
@@ -9,7 +9,6 @@ part of 'chat_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -29,21 +28,16 @@ $ChatStateCopyWith<ChatState> get copyWith => _$ChatStateCopyWithImpl<ChatState>
 
 @override
 bool operator ==(Object other) {
-  final _this = this as ChatState;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChatState&&const DeepCollectionEquality().equals(other.messages, _this.messages));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChatState&&const DeepCollectionEquality().equals(other.messages, messages));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode {
-  final _this = this as ChatState;
-  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.messages));
-}
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(messages));
 
 @override
 String toString() {
-  final _this = this as ChatState;
-  return 'ChatState(messages: ${_this.messages})';
+  return 'ChatState(messages: $messages)';
 }
 
 
@@ -72,7 +66,7 @@ class _$ChatStateCopyWithImpl<$Res>
 /// Create a copy of ChatState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? messages = null,}) {
-  return _then(ChatState(
+  return _then(_self.copyWith(
 messages: null == messages ? _self.messages : messages // ignore: cast_nullable_to_non_nullable
 as List<Message>,
   ));
@@ -215,7 +209,7 @@ return $default(_that.messages);case _:
 @JsonSerializable()
 
 class _ChatState extends ChatState {
-  const _ChatState({required  List<Message> messages}): _messages = messages,super._();
+  const _ChatState({required final  List<Message> messages}): _messages = messages,super._();
   factory _ChatState.fromJson(Map<String, dynamic> json) => _$ChatStateFromJson(json);
 
  final  List<Message> _messages;
@@ -239,18 +233,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChatState&&const DeepCollectionEquality().equals(other.messages, _messages));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChatState&&const DeepCollectionEquality().equals(other._messages, _messages));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode {
-    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_messages));
-}
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_messages));
 
 @override
 String toString() {
-    return 'ChatState(messages: $messages)';
+  return 'ChatState(messages: $messages)';
 }
 
 

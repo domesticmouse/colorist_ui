@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'color_state.dart';
@@ -9,7 +9,6 @@ part of 'color_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -31,21 +30,16 @@ $ColorStateCopyWith<ColorState> get copyWith => _$ColorStateCopyWithImpl<ColorSt
 
 @override
 bool operator ==(Object other) {
-  final _this = this as ColorState;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ColorState&&(identical(other.currentColor, _this.currentColor) || other.currentColor == _this.currentColor)&&const DeepCollectionEquality().equals(other.colorHistory, _this.colorHistory));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ColorState&&(identical(other.currentColor, currentColor) || other.currentColor == currentColor)&&const DeepCollectionEquality().equals(other.colorHistory, colorHistory));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode {
-  final _this = this as ColorState;
-  return Object.hash(runtimeType,_this.currentColor,const DeepCollectionEquality().hash(_this.colorHistory));
-}
+int get hashCode => Object.hash(runtimeType,currentColor,const DeepCollectionEquality().hash(colorHistory));
 
 @override
 String toString() {
-  final _this = this as ColorState;
-  return 'ColorState(currentColor: ${_this.currentColor}, colorHistory: ${_this.colorHistory})';
+  return 'ColorState(currentColor: $currentColor, colorHistory: $colorHistory)';
 }
 
 
@@ -74,7 +68,7 @@ class _$ColorStateCopyWithImpl<$Res>
 /// Create a copy of ColorState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? currentColor = null,Object? colorHistory = null,}) {
-  return _then(ColorState(
+  return _then(_self.copyWith(
 currentColor: null == currentColor ? _self.currentColor : currentColor // ignore: cast_nullable_to_non_nullable
 as ColorData,colorHistory: null == colorHistory ? _self.colorHistory : colorHistory // ignore: cast_nullable_to_non_nullable
 as List<ColorData>,
@@ -227,7 +221,7 @@ return $default(_that.currentColor,_that.colorHistory);case _:
 @JsonSerializable()
 
 class _ColorState extends ColorState {
-  const _ColorState({required this.currentColor, required  List<ColorData> colorHistory}): _colorHistory = colorHistory,super._();
+  const _ColorState({required this.currentColor, required final  List<ColorData> colorHistory}): _colorHistory = colorHistory,super._();
   factory _ColorState.fromJson(Map<String, dynamic> json) => _$ColorStateFromJson(json);
 
 /// The currently selected color.
@@ -255,18 +249,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ColorState&&(identical(other.currentColor, currentColor) || other.currentColor == currentColor)&&const DeepCollectionEquality().equals(other.colorHistory, _colorHistory));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ColorState&&(identical(other.currentColor, currentColor) || other.currentColor == currentColor)&&const DeepCollectionEquality().equals(other._colorHistory, _colorHistory));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode {
-    return Object.hash(runtimeType,currentColor,const DeepCollectionEquality().hash(_colorHistory));
-}
+int get hashCode => Object.hash(runtimeType,currentColor,const DeepCollectionEquality().hash(_colorHistory));
 
 @override
 String toString() {
-    return 'ColorState(currentColor: $currentColor, colorHistory: $colorHistory)';
+  return 'ColorState(currentColor: $currentColor, colorHistory: $colorHistory)';
 }
 
 
