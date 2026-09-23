@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.8.4
+
+* Looking for a combination of versions that works
+
 ## 0.8.3
 
 * Rebuild generated code

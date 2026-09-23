@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'log_state.dart';
@@ -9,6 +9,7 @@ part of 'log_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $LogStateCopyWith<LogState> get copyWith => _$LogStateCopyWithImpl<LogState>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogState&&const DeepCollectionEquality().equals(other.logEntries, logEntries));
+  final _this = this as LogState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogState&&const DeepCollectionEquality().equals(other.logEntries, _this.logEntries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(logEntries));
+int get hashCode {
+  final _this = this as LogState;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.logEntries));
+}
 
 @override
 String toString() {
-  return 'LogState(logEntries: $logEntries)';
+  final _this = this as LogState;
+  return 'LogState(logEntries: ${_this.logEntries})';
 }
 
 
@@ -66,7 +72,7 @@ class _$LogStateCopyWithImpl<$Res>
 /// Create a copy of LogState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? logEntries = null,}) {
-  return _then(_self.copyWith(
+  return _then(LogState(
 logEntries: null == logEntries ? _self.logEntries : logEntries // ignore: cast_nullable_to_non_nullable
 as List<LogEntry>,
   ));
@@ -209,7 +215,7 @@ return $default(_that.logEntries);case _:
 @JsonSerializable()
 
 class _LogState extends LogState {
-  const _LogState({required final  List<LogEntry> logEntries}): _logEntries = logEntries,super._();
+  const _LogState({required  List<LogEntry> logEntries}): _logEntries = logEntries,super._();
   factory _LogState.fromJson(Map<String, dynamic> json) => _$LogStateFromJson(json);
 
  final  List<LogEntry> _logEntries;
@@ -233,16 +239,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogState&&const DeepCollectionEquality().equals(other._logEntries, _logEntries));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogState&&const DeepCollectionEquality().equals(other.logEntries, _logEntries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_logEntries));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_logEntries));
+}
 
 @override
 String toString() {
-  return 'LogState(logEntries: $logEntries)';
+    return 'LogState(logEntries: $logEntries)';
 }
 
 

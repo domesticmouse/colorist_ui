@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'color_data.dart';
@@ -9,6 +9,7 @@ part of 'color_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $ColorDataCopyWith<ColorData> get copyWith => _$ColorDataCopyWithImpl<ColorData>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ColorData&&(identical(other.red, red) || other.red == red)&&(identical(other.green, green) || other.green == green)&&(identical(other.blue, blue) || other.blue == blue));
+  final _this = this as ColorData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ColorData&&(identical(other.red, _this.red) || other.red == _this.red)&&(identical(other.green, _this.green) || other.green == _this.green)&&(identical(other.blue, _this.blue) || other.blue == _this.blue));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,red,green,blue);
+int get hashCode {
+  final _this = this as ColorData;
+  return Object.hash(runtimeType,_this.red,_this.green,_this.blue);
+}
 
 @override
 String toString() {
-  return 'ColorData(red: $red, green: $green, blue: $blue)';
+  final _this = this as ColorData;
+  return 'ColorData(red: ${_this.red}, green: ${_this.green}, blue: ${_this.blue})';
 }
 
 
@@ -66,7 +72,7 @@ class _$ColorDataCopyWithImpl<$Res>
 /// Create a copy of ColorData
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? red = null,Object? green = null,Object? blue = null,}) {
-  return _then(_self.copyWith(
+  return _then(ColorData(
 red: null == red ? _self.red : red // ignore: cast_nullable_to_non_nullable
 as double,green: null == green ? _self.green : green // ignore: cast_nullable_to_non_nullable
 as double,blue: null == blue ? _self.blue : blue // ignore: cast_nullable_to_non_nullable
@@ -231,16 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ColorData&&(identical(other.red, red) || other.red == red)&&(identical(other.green, green) || other.green == green)&&(identical(other.blue, blue) || other.blue == blue));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ColorData&&(identical(other.red, red) || other.red == red)&&(identical(other.green, green) || other.green == green)&&(identical(other.blue, blue) || other.blue == blue));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,red,green,blue);
+int get hashCode {
+    return Object.hash(runtimeType,red,green,blue);
+}
 
 @override
 String toString() {
-  return 'ColorData(red: $red, green: $green, blue: $blue)';
+    return 'ColorData(red: $red, green: $green, blue: $blue)';
 }
 
 
