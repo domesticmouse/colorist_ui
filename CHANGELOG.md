@@ -1,5 +1,9 @@
 # Colorist UI Changelog
 
+## 0.8.2
+
+* Change dependency versions for compatibility reasons
+
 ## 0.8.1
 
 * Update deps
